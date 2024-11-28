@@ -1021,6 +1021,9 @@ interface TextBox extends GuiObject {
 }
 
 interface TextChannel extends Instance {
+	readonly DirectChatRequester: Player | undefined;
+	/** @server */
+	SetDirectChatRequester(this: TextChannel, requester: Player): void;
 	/** @client */
 	OnIncomingMessage: (message: TextChatMessage) => TextChatMessageProperties | undefined;
 	/** @server */
