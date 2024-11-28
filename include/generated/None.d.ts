@@ -6,17 +6,20 @@
 
 interface Services {
 	AccountService: AccountService;
-	ActivityHistoryService: ActivityHistoryService;
+	AchievementService: AchievementService;
 	AnalyticsService: AnalyticsService;
 	AnimationClipProvider: AnimationClipProvider;
 	AnimationFromVideoCreatorService: AnimationFromVideoCreatorService;
 	AnimationFromVideoCreatorStudioService: AnimationFromVideoCreatorStudioService;
+	AnnotationsService: AnnotationsService;
+	AppLifecycleObserverService: AppLifecycleObserverService;
 	AppUpdateService: AppUpdateService;
 	AssetCounterService: AssetCounterService;
 	AssetDeliveryProxy: AssetDeliveryProxy;
 	AssetImportService: AssetImportService;
 	AssetManagerService: AssetManagerService;
 	AssetService: AssetService;
+	AudioFocusService: AudioFocusService;
 	AvatarChatService: AvatarChatService;
 	AvatarCreationService: AvatarCreationService;
 	AvatarEditorService: AvatarEditorService;
@@ -27,9 +30,11 @@ interface Services {
 	CaptureService: CaptureService;
 	Chat: Chat;
 	ChatbotUIService: ChatbotUIService;
+	CloudCRUDService: CloudCRUDService;
 	CollaboratorsService: CollaboratorsService;
 	CollectionService: CollectionService;
 	CommandService: CommandService;
+	CommerceService: CommerceService;
 	ConfigureServerService: ConfigureServerService;
 	ConnectivityService: ConnectivityService;
 	ContentProvider: ContentProvider;
@@ -38,6 +43,7 @@ interface Services {
 	ConversationalAIAcceptanceService: ConversationalAIAcceptanceService;
 	CoreScriptDebuggingManagerHelper: CoreScriptDebuggingManagerHelper;
 	CreationDBService: CreationDBService;
+	CreatorStoreService: CreatorStoreService;
 	CrossDMScriptChangeListener: CrossDMScriptChangeListener;
 	DataModelPatchService: DataModelPatchService;
 	DataStoreService: DataStoreService;
@@ -47,8 +53,9 @@ interface Services {
 	DebuggerUIService: DebuggerUIService;
 	DeviceIdService: DeviceIdService;
 	DraggerService: DraggerService;
-	EngineAPICloudProcessingService: EngineAPICloudProcessingService;
+	EditableService: EditableService;
 	EventIngestService: EventIngestService;
+	ExampleService: ExampleService;
 	ExperienceAuthService: ExperienceAuthService;
 	ExperienceNotificationService: ExperienceNotificationService;
 	ExperienceService: ExperienceService;
@@ -58,10 +65,12 @@ interface Services {
 	FacialAnimationStreamingServiceV2: FacialAnimationStreamingServiceV2;
 	GamepadService: GamepadService;
 	GamePassService: GamePassService;
+	GenericChallengeService: GenericChallengeService;
 	GeometryService: GeometryService;
 	GroupService: GroupService;
 	GuiService: GuiService;
 	HapticService: HapticService;
+	HeatmapService: HeatmapService;
 	HeightmapImporterService: HeightmapImporterService;
 	HttpService: HttpService;
 	ILegacyStudioBridge: ILegacyStudioBridge;
@@ -74,6 +83,7 @@ interface Services {
 	LanguageService: LanguageService;
 	LegacyStudioBridge: LegacyStudioBridge;
 	Lighting: Lighting;
+	LinkingService: LinkingService;
 	LiveScriptingService: LiveScriptingService;
 	LocalizationService: LocalizationService;
 	LodDataService: LodDataService;
@@ -98,13 +108,13 @@ interface Services {
 	PlaceStatsService: PlaceStatsService;
 	PlatformCloudStorageService: PlatformCloudStorageService;
 	PlatformFriendsService: PlatformFriendsService;
+	PlayerHydrationService: PlayerHydrationService;
 	Players: Players;
 	PlayerViewService: PlayerViewService;
 	PluginManagementService: PluginManagementService;
 	PluginPolicyService: PluginPolicyService;
 	PolicyService: PolicyService;
 	ProcessInstancePhysicsService: ProcessInstancePhysicsService;
-	ProjectFolderService: ProjectFolderService;
 	ProximityPromptService: ProximityPromptService;
 	PublishService: PublishService;
 	ReflectionService: ReflectionService;
@@ -124,6 +134,7 @@ interface Services {
 	ScriptCommitService: ScriptCommitService;
 	ScriptContext: ScriptContext;
 	ScriptEditorService: ScriptEditorService;
+	ScriptProfilerService: ScriptProfilerService;
 	ScriptRegistrationService: ScriptRegistrationService;
 	SelectionHighlightManager: SelectionHighlightManager;
 	ServerScriptService: ServerScriptService;
@@ -139,6 +150,7 @@ interface Services {
 	StarterGui: StarterGui;
 	StarterPack: StarterPack;
 	StarterPlayer: StarterPlayer;
+	StartPageService: StartPageService;
 	StartupMessageService: StartupMessageService;
 	Stats: Stats;
 	StreamingService: StreamingService;
@@ -147,6 +159,7 @@ interface Services {
 	StudioPublishService: StudioPublishService;
 	StudioScriptDebugEventListener: StudioScriptDebugEventListener;
 	StudioSdkService: StudioSdkService;
+	StudioUserService: StudioUserService;
 	StudioWidgetsService: StudioWidgetsService;
 	StylingService: StylingService;
 	TeamCreateData: TeamCreateData;
@@ -165,12 +178,14 @@ interface Services {
 	TutorialService: TutorialService;
 	TweenService: TweenService;
 	UGCAvatarService: UGCAvatarService;
+	UIDragDetectorService: UIDragDetectorService;
 	UnvalidatedAssetService: UnvalidatedAssetService;
 	UserInputService: UserInputService;
 	UserService: UserService;
 	VideoCaptureService: VideoCaptureService;
 	VideoService: VideoService;
 	VisibilityCheckDispatcher: VisibilityCheckDispatcher;
+	VisualizationModeService: VisualizationModeService;
 	VoiceChatInternal: VoiceChatInternal;
 	VoiceChatService: VoiceChatService;
 	VRService: VRService;
@@ -194,8 +209,10 @@ interface CreatableInstances {
 	AnimationController: AnimationController;
 	AnimationRigData: AnimationRigData;
 	Animator: Animator;
+	Annotation: Annotation;
 	ArcHandles: ArcHandles;
 	Atmosphere: Atmosphere;
+	AtmosphereSensor: AtmosphereSensor;
 	Attachment: Attachment;
 	AudioAnalyzer: AudioAnalyzer;
 	AudioChorus: AudioChorus;
@@ -207,7 +224,9 @@ interface CreatableInstances {
 	AudioEmitter: AudioEmitter;
 	AudioEqualizer: AudioEqualizer;
 	AudioFader: AudioFader;
+	AudioFilter: AudioFilter;
 	AudioFlanger: AudioFlanger;
+	AudioLimiter: AudioLimiter;
 	AudioListener: AudioListener;
 	AudioPitchShifter: AudioPitchShifter;
 	AudioPlayer: AudioPlayer;
@@ -247,6 +266,7 @@ interface CreatableInstances {
 	Clouds: Clouds;
 	Color3Value: Color3Value;
 	ColorCorrectionEffect: ColorCorrectionEffect;
+	ColorGradingEffect: ColorGradingEffect;
 	CompressorSoundEffect: CompressorSoundEffect;
 	ConeHandleAdornment: ConeHandleAdornment;
 	Configuration: Configuration;
@@ -275,6 +295,7 @@ interface CreatableInstances {
 	EqualizerSoundEffect: EqualizerSoundEffect;
 	EulerRotationCurve: EulerRotationCurve;
 	ExperienceInviteOptions: ExperienceInviteOptions;
+	ExplorerFilterInstance: ExplorerFilterInstance;
 	Explosion: Explosion;
 	FaceControls: FaceControls;
 	FileMesh: FileMesh;
@@ -282,6 +303,7 @@ interface CreatableInstances {
 	FlangeSoundEffect: FlangeSoundEffect;
 	FloatCurve: FloatCurve;
 	FloorWire: FloorWire;
+	FluidForceSensor: FluidForceSensor;
 	Folder: Folder;
 	ForceField: ForceField;
 	Frame: Frame;
@@ -289,6 +311,7 @@ interface CreatableInstances {
 	Glue: Glue;
 	GroundController: GroundController;
 	Handles: Handles;
+	HapticEffect: HapticEffect;
 	Hat: Hat;
 	HiddenSurfaceRemovalAsset: HiddenSurfaceRemovalAsset;
 	Highlight: Highlight;
@@ -351,6 +374,7 @@ interface CreatableInstances {
 	ReverbSoundEffect: ReverbSoundEffect;
 	RigidConstraint: RigidConstraint;
 	RobloxEditableImage: RobloxEditableImage;
+	RobloxEditableMesh: RobloxEditableMesh;
 	RocketPropulsion: RocketPropulsion;
 	RodConstraint: RodConstraint;
 	RopeConstraint: RopeConstraint;
@@ -358,6 +382,7 @@ interface CreatableInstances {
 	RotateP: RotateP;
 	RotateV: RotateV;
 	RotationCurve: RotationCurve;
+	RTAnimationTracker: RTAnimationTracker;
 	ScreenGui: ScreenGui;
 	Script: Script;
 	ScrollingFrame: ScrollingFrame;
@@ -415,6 +440,7 @@ interface CreatableInstances {
 	TrussPart: TrussPart;
 	UIAspectRatioConstraint: UIAspectRatioConstraint;
 	UICorner: UICorner;
+	UIDragDetector: UIDragDetector;
 	UIFlexItem: UIFlexItem;
 	UIGradient: UIGradient;
 	UIGridLayout: UIGridLayout;
@@ -429,81 +455,30 @@ interface CreatableInstances {
 	UnionOperation: UnionOperation;
 	UniversalConstraint: UniversalConstraint;
 	UnreliableRemoteEvent: UnreliableRemoteEvent;
-	UserNotification: UserNotification;
-	UserNotificationPayload: UserNotificationPayload;
-	UserNotificationPayloadAnalyticsData: UserNotificationPayloadAnalyticsData;
-	UserNotificationPayloadJoinExperience: UserNotificationPayloadJoinExperience;
-	UserNotificationPayloadParameterValue: UserNotificationPayloadParameterValue;
 	Vector3Curve: Vector3Curve;
 	Vector3Value: Vector3Value;
 	VectorForce: VectorForce;
 	VehicleController: VehicleController;
 	VehicleSeat: VehicleSeat;
 	VelocityMotor: VelocityMotor;
+	VideoDeviceInput: VideoDeviceInput;
 	VideoFrame: VideoFrame;
 	ViewportFrame: ViewportFrame;
+	VisualizationMode: VisualizationMode;
+	VisualizationModeCategory: VisualizationModeCategory;
 	WedgePart: WedgePart;
 	Weld: Weld;
 	WeldConstraint: WeldConstraint;
 	Wire: Wire;
 	WireframeHandleAdornment: WireframeHandleAdornment;
+	WorkspaceAnnotation: WorkspaceAnnotation;
 	WorldModel: WorldModel;
+	WrapDeformer: WrapDeformer;
 	WrapLayer: WrapLayer;
 	WrapTarget: WrapTarget;
 }
 
-interface AbstractInstances {
-	BackpackItem: BackpackItem;
-	BasePart: BasePart;
-	BasePlayerGui: BasePlayerGui;
-	BaseScript: BaseScript;
-	BevelMesh: BevelMesh;
-	BodyMover: BodyMover;
-	CharacterAppearance: CharacterAppearance;
-	Clothing: Clothing;
-	Constraint: Constraint;
-	Controller: Controller;
-	DataModelMesh: DataModelMesh;
-	DynamicRotate: DynamicRotate;
-	FaceInstance: FaceInstance;
-	Feature: Feature;
-	FormFactorPart: FormFactorPart;
-	GenericSettings: GenericSettings;
-	GuiBase: GuiBase;
-	GuiBase2d: GuiBase2d;
-	GuiBase3d: GuiBase3d;
-	GuiButton: GuiButton;
-	GuiLabel: GuiLabel;
-	GuiObject: GuiObject;
-	HandleAdornment: HandleAdornment;
-	HandlesBase: HandlesBase;
-	Instance: Instance;
-	JointInstance: JointInstance;
-	LayerCollector: LayerCollector;
-	Light: Light;
-	LuaSourceContainer: LuaSourceContainer;
-	ManualSurfaceJointInstance: ManualSurfaceJointInstance;
-	Pages: Pages;
-	PartAdornment: PartAdornment;
-	PostEffect: PostEffect;
-	PVAdornment: PVAdornment;
-	PVInstance: PVInstance;
-	SelectionLasso: SelectionLasso;
-	ServiceProvider: ServiceProvider;
-	SlidingBallConstraint: SlidingBallConstraint;
-	SoundEffect: SoundEffect;
-	TriangleMeshPart: TriangleMeshPart;
-	TweenBase: TweenBase;
-	UIBase: UIBase;
-	UIComponent: UIComponent;
-	UIConstraint: UIConstraint;
-	UIGridStyleLayout: UIGridStyleLayout;
-	UILayout: UILayout;
-	ValueBase: ValueBase;
-	WorldRoot: WorldRoot;
-}
-
-interface Instances extends Services, CreatableInstances, AbstractInstances {
+interface Instances extends Services, CreatableInstances {
 	AnimationClip: AnimationClip;
 	AnimationImportData: AnimationImportData;
 	AnimationStreamTrack: AnimationStreamTrack;
@@ -512,21 +487,35 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	AssetPatchSettings: AssetPatchSettings;
 	AssetSoundEffect: AssetSoundEffect;
 	AudioPages: AudioPages;
+	BackpackItem: BackpackItem;
+	BanHistoryPages: BanHistoryPages;
 	BaseImportData: BaseImportData;
+	BasePart: BasePart;
+	BasePlayerGui: BasePlayerGui;
 	BaseRemoteEvent: BaseRemoteEvent;
+	BaseScript: BaseScript;
 	BaseWrap: BaseWrap;
+	BevelMesh: BevelMesh;
+	BodyMover: BodyMover;
 	BubbleChatConfiguration: BubbleChatConfiguration;
 	CatalogPages: CatalogPages;
 	ChannelSelectorSoundEffect: ChannelSelectorSoundEffect;
+	ChannelTabsConfiguration: ChannelTabsConfiguration;
+	CharacterAppearance: CharacterAppearance;
 	ChatInputBarConfiguration: ChatInputBarConfiguration;
 	ChatWindowConfiguration: ChatWindowConfiguration;
+	ChatWindowMessageProperties: ChatWindowMessageProperties;
+	Clothing: Clothing;
 	CloudLocalizationTable: CloudLocalizationTable;
 	Collaborator: Collaborator;
 	CommandInstance: CommandInstance;
+	Constraint: Constraint;
+	Controller: Controller;
 	ControllerBase: ControllerBase;
 	ControllerSensor: ControllerSensor;
 	CustomSoundEffect: CustomSoundEffect;
 	DataModel: DataModel;
+	DataModelMesh: DataModelMesh;
 	DataStore: DataStore;
 	DataStoreInfo: DataStoreInfo;
 	DataStoreKey: DataStoreKey;
@@ -539,19 +528,39 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	DebuggerConnection: DebuggerConnection;
 	DebuggerLuaResponse: DebuggerLuaResponse;
 	DebuggerVariable: DebuggerVariable;
+	DynamicRotate: DynamicRotate;
 	EmotesPages: EmotesPages;
+	ExplorerFilterAutocompleterInstance: ExplorerFilterAutocompleterInstance;
+	FaceInstance: FaceInstance;
 	FacialAnimationStreamingServiceStats: FacialAnimationStreamingServiceStats;
 	FacialAnimationStreamingSubsessionStats: FacialAnimationStreamingSubsessionStats;
 	FacsImportData: FacsImportData;
+	Feature: Feature;
+	FormFactorPart: FormFactorPart;
 	FriendPages: FriendPages;
+	GenericSettings: GenericSettings;
 	GlobalDataStore: GlobalDataStore;
 	GroupImportData: GroupImportData;
+	GuiBase: GuiBase;
+	GuiBase2d: GuiBase2d;
+	GuiBase3d: GuiBase3d;
+	GuiButton: GuiButton;
+	GuiLabel: GuiLabel;
+	GuiObject: GuiObject;
+	HandleAdornment: HandleAdornment;
+	HandlesBase: HandlesBase;
 	InputObject: InputObject;
+	Instance: Instance;
 	InstanceAdornment: InstanceAdornment;
 	InventoryPages: InventoryPages;
 	JointImportData: JointImportData;
+	JointInstance: JointInstance;
+	LayerCollector: LayerCollector;
+	Light: Light;
 	LocalDebuggerConnection: LocalDebuggerConnection;
 	LodDataEntity: LodDataEntity;
+	LuaSourceContainer: LuaSourceContainer;
+	ManualSurfaceJointInstance: ManualSurfaceJointInstance;
 	MaterialGenerationSession: MaterialGenerationSession;
 	MaterialImportData: MaterialImportData;
 	MemoryStoreHashMap: MemoryStoreHashMap;
@@ -568,7 +577,9 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	OrderedDataStore: OrderedDataStore;
 	OutfitPages: OutfitPages;
 	PackageLink: PackageLink;
+	Pages: Pages;
 	ParabolaAdornment: ParabolaAdornment;
+	PartAdornment: PartAdornment;
 	PatchMapping: PatchMapping;
 	Path: Path;
 	PausedState: PausedState;
@@ -581,12 +592,19 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	PlayerScripts: PlayerScripts;
 	PluginManagerInterface: PluginManagerInterface;
 	PoseBase: PoseBase;
+	PostEffect: PostEffect;
+	PVAdornment: PVAdornment;
+	PVInstance: PVInstance;
 	RootImportData: RootImportData;
 	ScreenshotHud: ScreenshotHud;
 	ScriptBuilder: ScriptBuilder;
 	ScriptDocument: ScriptDocument;
 	ScriptRuntime: ScriptRuntime;
+	SelectionLasso: SelectionLasso;
 	SensorBase: SensorBase;
+	ServiceProvider: ServiceProvider;
+	SlidingBallConstraint: SlidingBallConstraint;
+	SoundEffect: SoundEffect;
 	StackFrame: StackFrame;
 	StandardPages: StandardPages;
 	StarterCharacterScripts: StarterCharacterScripts;
@@ -604,13 +622,23 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	TextFilterTranslatedResult: TextFilterTranslatedResult;
 	TextSource: TextSource;
 	TextureGenerationPartGroup: TextureGenerationPartGroup;
+	TextureGenerationUnwrappingRequest: TextureGenerationUnwrappingRequest;
 	ThreadState: ThreadState;
 	TouchTransmitter: TouchTransmitter;
 	TrackerLodController: TrackerLodController;
 	Translator: Translator;
+	TriangleMeshPart: TriangleMeshPart;
 	Tween: Tween;
+	TweenBase: TweenBase;
+	UIBase: UIBase;
+	UIComponent: UIComponent;
+	UIConstraint: UIConstraint;
+	UIGridStyleLayout: UIGridStyleLayout;
+	UILayout: UILayout;
 	UserGameSettings: UserGameSettings;
 	UserSettings: UserSettings;
+	ValueBase: ValueBase;
+	WorldRoot: WorldRoot;
 }
 
 // GENERATED ROBLOX INSTANCE CLASSES
@@ -946,6 +974,8 @@ interface Instance {
 	 * *   [Instance:GetAttribute](https://developer.roblox.com/en-us/api-reference/function/Instance/GetAttribute), returns the attribute which has been assigned to the given name
 	 * *   [Instance.AttributeChanged](https://developer.roblox.com/en-us/api-reference/event/Instance/AttributeChanged), fires whenever an attribute is changed on the instance
 	 * *   [Instance:GetAttributeChangedSignal](https://developer.roblox.com/en-us/api-reference/function/Instance/GetAttributeChangedSignal), returns an event that fires when the given attribute changes
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	GetAttributes(this: Instance): Map<string, AttributeValue>;
 	/**
@@ -1014,7 +1044,8 @@ interface Instance {
 		this: T,
 		propertyName: InstancePropertyNames<T>,
 	): RBXScriptSignal<() => void>;
-	GetTags(this: Instance): unknown;
+	GetStyled(this: Instance, name: string): unknown;
+	GetTags(this: Instance): Array<string>;
 	HasTag(this: Instance, tag: string): boolean;
 	/**
 	 * IsA returns true if the [Instance](https://developer.roblox.com/en-us/api-reference/class/Instance)'s class is **equivalent to** or a **subclass** of a given class. This function is similar to the **instanceof** operators in other languages, and is a form of [type introspection](https://en.wikipedia.org/wiki/Type_introspection). To ignore class inheritance, test the [ClassName](https://developer.roblox.com/en-us/api-reference/property/Instance/ClassName) property directly instead. For checking native Lua data types (number, string, etc) use the functions `type` and `typeof`.
@@ -1265,7 +1296,11 @@ interface AccessoryDescription extends Instance {
 	Instance: Instance | undefined;
 	IsLayered: boolean;
 	Order: number;
+	Position: Vector3;
 	Puffiness: number;
+	Rotation: Vector3;
+	Scale: Vector3;
+	GetAppliedInstance(this: AccessoryDescription): Instance | undefined;
 }
 
 interface AccountService extends Instance {
@@ -1356,7 +1391,7 @@ interface Hat extends Accoutrement {
 	readonly _nominal_Hat: unique symbol;
 }
 
-interface ActivityHistoryService extends Instance {
+interface AchievementService extends Instance {
 	/**
 	 * **DO NOT USE!**
 	 *
@@ -1364,8 +1399,7 @@ interface ActivityHistoryService extends Instance {
 	 * @hidden
 	 * @deprecated
 	 */
-	readonly _nominal_ActivityHistoryService: unique symbol;
-	readonly onEventNotificationReceived: RBXScriptSignal<() => void>;
+	readonly _nominal_AchievementService: unique symbol;
 }
 
 interface AdPortal extends Instance {
@@ -1440,6 +1474,7 @@ interface AnalyticsService extends Instance {
 	 * *   [AnalyticsService:FirePlayerProgressionEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FirePlayerProgressionEvent), triggers an event used to track player progression through the game
 	 * *   [AnalyticsService:FireInGameEconomyEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireInGameEconomyEvent), triggers an event used to track player actions pertaining to the in-game economy
 	 * *   [AnalyticsService:FireLogEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireLogEvent), triggers an event used to track errors and warnings experienced by players
+	 * @deprecated
 	 */
 	FireCustomEvent(
 		this: AnalyticsService,
@@ -1499,6 +1534,7 @@ interface AnalyticsService extends Instance {
 	 * *   [AnalyticsService:FirePlayerProgressionEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FirePlayerProgressionEvent), triggers an event used to track player progression through the game
 	 * *   [AnalyticsService:FireLogEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireLogEvent), triggers an event used to track errors and warnings experienced by players
 	 * *   [AnalyticsService:FireCustomEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireCustomEvent), triggers an event used to emit a custom event
+	 * @deprecated
 	 */
 	FireInGameEconomyEvent(
 		this: AnalyticsService,
@@ -1556,6 +1592,7 @@ interface AnalyticsService extends Instance {
 	 * *   [AnalyticsService:FireInGameEconomyEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireInGameEconomyEvent), triggers an event used to track player actions pertaining to the in-game economy
 	 * *   [AnalyticsService:FirePlayerProgressionEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FirePlayerProgressionEvent), triggers an event used to track player progression through the game
 	 * *   [AnalyticsService:FireCustomEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireCustomEvent), triggers an event used to emit a custom event
+	 * @deprecated
 	 */
 	FireLogEvent(
 		this: AnalyticsService,
@@ -1613,6 +1650,7 @@ interface AnalyticsService extends Instance {
 	 * *   [AnalyticsService:FireInGameEconomyEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireInGameEconomyEvent), triggers an event used to track player actions pertaining to the in-game economy
 	 * *   [AnalyticsService:FireLogEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireLogEvent), triggers an event used to track errors and warnings experienced by players
 	 * *   [AnalyticsService:FireCustomEvent](https://developer.roblox.com/en-us/api-reference/function/AnalyticsService/FireCustomEvent), triggers an event used to emit a custom event
+	 * @deprecated
 	 */
 	FirePlayerProgressionEvent(
 		this: AnalyticsService,
@@ -1623,6 +1661,14 @@ interface AnalyticsService extends Instance {
 		statistics?: { [index: string]: number },
 		customData?: unknown,
 	): void;
+	LogCustomEvent(this: AnalyticsService, player: Player, eventName: string, value?: number, customFields?: object): void;
+	LogEconomyEvent(this: AnalyticsService, player: Player, flowType: CastsToEnum<Enum.AnalyticsEconomyFlowType>, currencyType: string, amount: number, endingBalance: number, transactionType: string, itemSku?: string, customFields?: object): void;
+	LogFunnelStepEvent(this: AnalyticsService, player: Player, funnelName: string, funnelSessionId?: string, step?: number, stepName?: string, customFields?: object): void;
+	LogOnboardingFunnelStepEvent(this: AnalyticsService, player: Player, step: number, stepName?: string, customFields?: object): void;
+	LogProgressionCompleteEvent(this: AnalyticsService, player: Player, progressionPathName: string, level: number, levelName?: string, customFields?: object): void;
+	LogProgressionEvent(this: AnalyticsService, player: Player, progressionPathName: string, status: CastsToEnum<Enum.AnalyticsProgressionType>, level: number, levelName?: string, customFields?: object): void;
+	LogProgressionFailEvent(this: AnalyticsService, player: Player, progressionPathName: string, level: number, levelName?: string, customFields?: object): void;
+	LogProgressionStartEvent(this: AnalyticsService, player: Player, progressionPathName: string, level: number, levelName?: string, customFields?: object): void;
 }
 
 /** An object that references an animation asset (AnimationId) which can be loaded by a [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) or [AnimationController](https://developer.roblox.com/en-us/api-reference/class/AnimationController)
@@ -1668,7 +1714,7 @@ interface Animation extends Instance {
 	 * 
 	 * Note, the animation will need to be loaded onto an [AnimationTrack](https://developer.roblox.com/en-us/api-reference/class/AnimationTrack) in order to play it.
 	 */
-	AnimationId: string;
+	AnimationId: ContentId;
 }
 
 interface AnimationClip extends Instance {
@@ -1772,12 +1818,12 @@ interface AnimationClipProvider extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AnimationClipProvider: unique symbol;
-	RegisterActiveAnimationClip(this: AnimationClipProvider, animationClip: AnimationClip): string;
-	RegisterAnimationClip(this: AnimationClipProvider, animationClip: AnimationClip): string;
+	RegisterActiveAnimationClip(this: AnimationClipProvider, animationClip: AnimationClip): ContentId;
+	RegisterAnimationClip(this: AnimationClipProvider, animationClip: AnimationClip): ContentId;
 	/**
 	 * Tags: Yields
 	 */
-	GetAnimationClipAsync(this: AnimationClipProvider, assetId: string): AnimationClip;
+	GetAnimationClipAsync(this: AnimationClipProvider, assetId: ContentId): AnimationClip;
 	/**
 	 * Tags: Yields
 	 */
@@ -1785,7 +1831,7 @@ interface AnimationClipProvider extends Instance {
 	/**
 	 * Tags: Yields
 	 */
-	GetClipEvaluatorAsync(this: AnimationClipProvider, assetId: string): ClipEvaluator;
+	GetClipEvaluatorAsync(this: AnimationClipProvider, assetId: ContentId): ClipEvaluator;
 }
 
 /** An object which allows animations to be loaded and applied to a character or model in place of a [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) when a Humanoid is not needed. Creates an [Animator](https://developer.roblox.com/en-us/api-reference/class/Animator) and loads animations to update [Motor6Ds](https://developer.roblox.com/en-us/api-reference/class/Motor6D) of said character to react in the way that is described within the animation asset referenced by an [Animation](https://developer.roblox.com/en-us/api-reference/class/Animation) object.
@@ -2244,6 +2290,50 @@ interface Animator extends Instance {
 	readonly AnimationPlayed: RBXScriptSignal<(animationTrack: AnimationTrack) => void>;
 }
 
+interface Annotation extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_Annotation: unique symbol;
+}
+
+interface WorkspaceAnnotation extends Annotation {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_WorkspaceAnnotation: unique symbol;
+}
+
+interface AnnotationsService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AnnotationsService: unique symbol;
+}
+
+interface AppLifecycleObserverService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AppLifecycleObserverService: unique symbol;
+}
+
 interface AppUpdateService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -2342,11 +2432,11 @@ interface AssetService extends Instance {
 	/**
 	 * Tags: Yields
 	 */
-	CreateEditableImageAsync(this: AssetService, textureId: string): EditableImage;
+	CreateEditableImageAsync(this: AssetService, textureId: ContentId): EditableImage;
 	/**
 	 * Tags: Yields
 	 */
-	CreateEditableMeshAsync(this: AssetService, meshId: string): EditableMesh;
+	CreateEditableMeshAsync(this: AssetService, meshId: ContentId): EditableMesh;
 	/**
 	 * Tags: Yields
 	 */
@@ -2773,6 +2863,8 @@ interface AudioAnalyzer extends Instance {
 	 * Tags: NotReplicated
 	 */
 	readonly RmsLevel: number;
+	SpectrumEnabled: boolean;
+	GetConnectedWires(this: AudioAnalyzer, pin: string): Array<Instance>;
 	/**
 	 * Tags: CustomLuaState
 	 */
@@ -2788,9 +2880,11 @@ interface AudioChorus extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioChorus: unique symbol;
+	Bypass: boolean;
 	Depth: number;
 	Mix: number;
 	Rate: number;
+	GetConnectedWires(this: AudioChorus, pin: string): Array<Instance>;
 }
 
 interface AudioCompressor extends Instance {
@@ -2803,10 +2897,12 @@ interface AudioCompressor extends Instance {
 	 */
 	readonly _nominal_AudioCompressor: unique symbol;
 	Attack: number;
+	Bypass: boolean;
 	MakeupGain: number;
 	Ratio: number;
 	Release: number;
 	Threshold: number;
+	GetConnectedWires(this: AudioCompressor, pin: string): Array<Instance>;
 }
 
 interface AudioDeviceInput extends Instance {
@@ -2822,6 +2918,8 @@ interface AudioDeviceInput extends Instance {
 	readonly Active: boolean;
 	Muted: boolean;
 	Player: Player | undefined;
+	Volume: number;
+	GetConnectedWires(this: AudioDeviceInput, pin: string): Array<Instance>;
 	GetUserIdAccessList(this: AudioDeviceInput): unknown;
 	SetUserIdAccessList(this: AudioDeviceInput, userIds: Array<any>): void;
 }
@@ -2836,6 +2934,7 @@ interface AudioDeviceOutput extends Instance {
 	 */
 	readonly _nominal_AudioDeviceOutput: unique symbol;
 	Player: Player | undefined;
+	GetConnectedWires(this: AudioDeviceOutput, pin: string): Array<Instance>;
 }
 
 interface AudioDistortion extends Instance {
@@ -2847,7 +2946,9 @@ interface AudioDistortion extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioDistortion: unique symbol;
+	Bypass: boolean;
 	Level: number;
+	GetConnectedWires(this: AudioDistortion, pin: string): Array<Instance>;
 }
 
 interface AudioEcho extends Instance {
@@ -2859,10 +2960,12 @@ interface AudioEcho extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioEcho: unique symbol;
+	Bypass: boolean;
 	DelayTime: number;
 	DryLevel: number;
 	Feedback: number;
 	WetLevel: number;
+	GetConnectedWires(this: AudioEcho, pin: string): Array<Instance>;
 }
 
 interface AudioEmitter extends Instance {
@@ -2875,6 +2978,16 @@ interface AudioEmitter extends Instance {
 	 */
 	readonly _nominal_AudioEmitter: unique symbol;
 	AudioInteractionGroup: string;
+	GetConnectedWires(this: AudioEmitter, pin: string): Array<Instance>;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetDistanceAttenuation(this: AudioEmitter): object;
+	GetInteractingListeners(this: AudioEmitter): Array<Instance>;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetDistanceAttenuation(this: AudioEmitter, curve: DistanceAttenuationCurve): void;
 }
 
 interface AudioEqualizer extends Instance {
@@ -2886,10 +2999,12 @@ interface AudioEqualizer extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioEqualizer: unique symbol;
+	Bypass: boolean;
 	HighGain: number;
 	LowGain: number;
 	MidGain: number;
 	MidRange: NumberRange;
+	GetConnectedWires(this: AudioEqualizer, pin: string): Array<Instance>;
 }
 
 interface AudioFader extends Instance {
@@ -2901,7 +3016,27 @@ interface AudioFader extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioFader: unique symbol;
+	Bypass: boolean;
 	Volume: number;
+	GetConnectedWires(this: AudioFader, pin: string): Array<Instance>;
+}
+
+interface AudioFilter extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AudioFilter: unique symbol;
+	Bypass: boolean;
+	FilterType: Enum.AudioFilterType;
+	Frequency: number;
+	Gain: number;
+	Q: number;
+	GetConnectedWires(this: AudioFilter, pin: string): Array<Instance>;
+	GetGainAt(this: AudioFilter, frequency: number): number;
 }
 
 interface AudioFlanger extends Instance {
@@ -2913,9 +3048,37 @@ interface AudioFlanger extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioFlanger: unique symbol;
+	Bypass: boolean;
 	Depth: number;
 	Mix: number;
 	Rate: number;
+	GetConnectedWires(this: AudioFlanger, pin: string): Array<Instance>;
+}
+
+interface AudioFocusService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AudioFocusService: unique symbol;
+}
+
+interface AudioLimiter extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AudioLimiter: unique symbol;
+	Bypass: boolean;
+	MaxLevel: number;
+	Release: number;
+	GetConnectedWires(this: AudioLimiter, pin: string): Array<Instance>;
 }
 
 interface AudioListener extends Instance {
@@ -2928,6 +3091,16 @@ interface AudioListener extends Instance {
 	 */
 	readonly _nominal_AudioListener: unique symbol;
 	AudioInteractionGroup: string;
+	GetConnectedWires(this: AudioListener, pin: string): Array<Instance>;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetDistanceAttenuation(this: AudioListener): object;
+	GetInteractingEmitters(this: AudioListener): Array<Instance>;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetDistanceAttenuation(this: AudioListener, curve: object): void;
 }
 
 interface AudioPitchShifter extends Instance {
@@ -2939,7 +3112,9 @@ interface AudioPitchShifter extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioPitchShifter: unique symbol;
+	Bypass: boolean;
 	Pitch: number;
+	GetConnectedWires(this: AudioPitchShifter, pin: string): Array<Instance>;
 }
 
 interface AudioPlayer extends Instance {
@@ -2967,8 +3142,12 @@ interface AudioPlayer extends Instance {
 	 */
 	readonly TimeLength: number;
 	TimePosition: number;
+	Volume: number;
+	GetConnectedWires(this: AudioPlayer, pin: string): Array<Instance>;
 	Play(this: AudioPlayer): void;
 	Stop(this: AudioPlayer): void;
+	readonly Ended: RBXScriptSignal<() => void>;
+	readonly Looped: RBXScriptSignal<() => void>;
 }
 
 interface AudioReverb extends Instance {
@@ -2980,6 +3159,7 @@ interface AudioReverb extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioReverb: unique symbol;
+	Bypass: boolean;
 	DecayRatio: number;
 	DecayTime: number;
 	Density: number;
@@ -2992,6 +3172,7 @@ interface AudioReverb extends Instance {
 	LowShelfGain: number;
 	ReferenceFrequency: number;
 	WetLevel: number;
+	GetConnectedWires(this: AudioReverb, pin: string): Array<Instance>;
 }
 
 interface AudioSearchParams extends Instance {
@@ -3039,9 +3220,70 @@ interface AvatarCreationService extends Instance {
 	 */
 	readonly _nominal_AvatarCreationService: unique symbol;
 	/**
+	 * Tags: CustomLuaState
+	 */
+	GetValidationRules(this: AvatarCreationService): object;
+	SendAnalyticsEvent(this: AvatarCreationService, eventName: string, params: object): void;
+	/**
+	 * Tags: Yields
+	 */
+	GenerateAvatarAsync(this: AvatarCreationService, sessionId: string, previewId: string): string;
+	/**
+	 * Tags: Yields
+	 */
+	GenerateAvatarModelAsync(this: AvatarCreationService, player: Player, previewJobId: string, options: object, progressCallback: Callback): string;
+	/**
+	 * Tags: Yields
+	 */
+	GenerateAvatarPreviewAsync(this: AvatarCreationService, player: Player, textPrompt: string, options: object, progressCallback: Callback): string;
+	/**
+	 * Tags: Yields
+	 */
+	GenerateAvatarPreviewAsync2(this: AvatarCreationService, sessionId: string, fileId: string, textPrompt: string, options: object): string;
+	/**
+	 * Tags: Yields
+	 */
+	GetAvatarGenerationConfig(this: AvatarCreationService): object;
+	/**
+	 * Tags: Yields
+	 */
+	GetBatchTokenDetailsAsync(this: AvatarCreationService, tokenIds: Array<any>): unknown;
+	/**
+	 * Tags: Yields
+	 */
+	LoadAvatarHumanoidDescriptionAsync(this: AvatarCreationService, id: string): HumanoidDescription;
+	/**
+	 * Tags: Yields
+	 */
+	LoadAvatarModelAsync(this: AvatarCreationService, id: string): Instance | undefined;
+	/**
+	 * Tags: Yields
+	 */
+	LoadAvatarPreviewImageAsync(this: AvatarCreationService, avatarPreview: string): EditableImage;
+	/**
 	 * Tags: Yields
 	 */
 	PromptCreateAvatarAsync(this: AvatarCreationService, player: Player, humanoidDescription: HumanoidDescription): unknown;
+	/**
+	 * Tags: Yields
+	 */
+	PromptSelectAvatarGenerationImageAsync(this: AvatarCreationService, player: Player): string;
+	/**
+	 * Tags: Yields
+	 */
+	RequestAvatarGenerationSessionAsync(this: AvatarCreationService, player: Player, callback: Callback): unknown;
+	/**
+	 * Tags: Yields
+	 */
+	ValidateUGCAccessoryAsync(this: AvatarCreationService, player: Player, accessory: Accessory, accessoryType: CastsToEnum<Enum.AccessoryType>): unknown;
+	/**
+	 * Tags: Yields
+	 */
+	ValidateUGCBodyPartAsync(this: AvatarCreationService, player: Player, instance: Instance, bodyPart: CastsToEnum<Enum.BodyPart>): unknown;
+	/**
+	 * Tags: Yields
+	 */
+	ValidateUGCFullBodyAsync(this: AvatarCreationService, player: Player, humanoidDescription: HumanoidDescription): unknown;
 }
 
 /** AvatarEditorService is a service to support developer Avatar Editors. It provides methods to modify the player's platform avatar, request information about a user's inventory, and request information about the catalog.
@@ -3546,6 +3788,10 @@ interface BadgeService extends Instance {
 	 */
 	AwardBadge(this: BadgeService, userId: number, badgeId: number): boolean;
 	/**
+	 * Tags: Yields
+	 */
+	CheckUserBadgesAsync(this: BadgeService, userId: number, badgeIds: Array<any>): unknown;
+	/**
 	 * This function fteches information about a [badge](https://developer.roblox.com/en-us/articles/badges-special-game-awards) given its ID. It takes a brief moment to load the information from the Roblox website; repeated calls will cache for a short duration. It returns a dictionary with the following fields:
 	 * 
 	 * Key
@@ -3813,6 +4059,7 @@ interface RootImportData extends BaseImportData {
 	InsertInWorkspace: boolean;
 	InsertWithScenePosition: boolean;
 	InvertNegativeFaces: boolean;
+	KeepZeroInfluenceBones: boolean;
 	MergeMeshes: boolean;
 	/**
 	 * Tags: NotReplicated
@@ -4832,7 +5079,7 @@ interface BaseWrap extends Instance {
 	 * 
 	 * Asset ID for cage mesh.
 	 */
-	CageMeshId: string;
+	CageMeshId: ContentId;
 	/**
 	 * This property is set up automatically by the Avatar Importer plugin.
 	 * 
@@ -4891,6 +5138,22 @@ interface BaseWrap extends Instance {
 	readonly ImportOriginWorld: CFrame;
 }
 
+interface WrapDeformer extends BaseWrap {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_WrapDeformer: unique symbol;
+	GetDeformedCFrame(this: WrapDeformer, originalCFrame: CFrame): CFrame;
+	/**
+	 * Tags: Yields
+	 */
+	CreateEditableMeshAsync(this: WrapDeformer): EditableMesh;
+}
+
 /** The WrapLayer object defines a 3D accessory's inner and outer surfaces and other properties related to layering accessories. These surfaces, or the Inner Cage and Outer Cage, are similar to collision boxes, and describe the surfaces of which other 3D accessories can be placed without clipping or breaking.
  * 
  * Internally, WrapLayer also uses the UV layout of the Inner and Outer cages to match coordinates to another 3D object's cage. This powers the deformation of objects around differently shaped avatars and underlying accessories.
@@ -4932,7 +5195,7 @@ interface WrapLayer extends BaseWrap {
 	 * 
 	 * Note: this property is set up automatically by the FBX importer
 	 */
-	ReferenceMeshId: string;
+	ReferenceMeshId: ContentId;
 	/**
 	 * Reference mesh offset relative to parent MeshPart (in the parent MeshPart space)
 	 * 
@@ -5157,6 +5420,10 @@ interface Beam extends Instance {
 	 */
 	LightInfluence: number;
 	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
+	/**
 	 * Sets how many straight segments the [Beam](https://developer.roblox.com/en-us/api-reference/class/Beam) is made up of.
 	 * 
 	 * This value can be any integer greater than 0. The default value is 10.
@@ -5185,7 +5452,7 @@ interface Beam extends Instance {
 	 * 
 	 * The scaling of the texture is determined by the [Beam.TextureMode](https://developer.roblox.com/en-us/api-reference/property/Beam/TextureMode), [Beam.TextureLength](https://developer.roblox.com/en-us/api-reference/property/Beam/TextureLength), [Beam.Width0](https://developer.roblox.com/en-us/api-reference/property/Beam/Width0) and [Beam.Width1](https://developer.roblox.com/en-us/api-reference/property/Beam/Width1) properties.
 	 */
-	Texture: string;
+	Texture: ContentId;
 	/**
 	 * Sets the length of the [Beam](https://developer.roblox.com/en-us/api-reference/class/Beam)s texture if [Beam.TextureMode](https://developer.roblox.com/en-us/api-reference/property/Beam/TextureMode) is 'Wrap' or 'Static'. If [Beam.TextureMode](https://developer.roblox.com/en-us/api-reference/property/Beam/TextureMode) is 'Stretch' then it determines the size of the texture relative to the [Beam](https://developer.roblox.com/en-us/api-reference/class/Beam)'s length.
 	 * 
@@ -6057,23 +6324,6 @@ interface Breakpoint extends Instance {
 	readonly _nominal_Breakpoint: unique symbol;
 }
 
-interface BubbleChatMessageProperties extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_BubbleChatMessageProperties: unique symbol;
-	BackgroundColor3: Color3;
-	BackgroundTransparency: number;
-	FontFace: Font;
-	TailVisible: boolean;
-	TextColor3: Color3;
-	TextSize: number;
-}
-
 interface BulkImportService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -6670,13 +6920,26 @@ interface CaptureService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_CaptureService: unique symbol;
-	CaptureScreenshot(this: CaptureService, onCaptureReady: Callback): void;
-	PromptSaveCapturesToGallery(this: CaptureService, contentIds: Array<any>, resultCallback: Callback): void;
-	PromptShareCapture(this: CaptureService, contentId: string, launchData: string, onAcceptedCallback: Callback, onDeniedCallback: Callback): void;
+	CaptureScreenshot(this: CaptureService, onCaptureReady: (captureContentId: string) => void): void;
+	PromptSaveCapturesToGallery<T extends string>(
+		this: CaptureService,
+		contentIds: Array<T>,
+		resultCallback: (results: Record<T, boolean>) => void,
+	): void;
+	PromptShareCapture(
+		this: CaptureService,
+		contentId: string,
+		launchData: string,
+		onAcceptedCallback: () => void,
+		onDeniedCallback: () => void,
+	): void;
 	readonly CaptureBegan: RBXScriptSignal<() => void>;
 	readonly CaptureEnded: RBXScriptSignal<() => void>;
-	readonly CaptureSaved: RBXScriptSignal<(captureInfo: object) => void>;
-	readonly UserCaptureSaved: RBXScriptSignal<(captureContentId: string) => void>;
+	/**
+	 * @deprecated Use `UserCaptureSaved` instead
+	 */
+	readonly CaptureSaved: RBXScriptSignal<(captureInfo: Record<string, unknown>) => void>;
+	readonly UserCaptureSaved: RBXScriptSignal<(captureContentId: ContentId) => void>;
 }
 
 /** Base class for objects that change a character's appearance. */
@@ -6858,7 +7121,7 @@ interface Pants extends Clothing {
 	 * 
 	 * For a [Shirt](https://developer.roblox.com/en-us/api-reference/class/Shirt) object's template, see [Shirt.ShirtTemplate](https://developer.roblox.com/en-us/api-reference/property/Shirt/ShirtTemplate).
 	 */
-	PantsTemplate: string;
+	PantsTemplate: ContentId;
 }
 
 /** ![A default rig wearing a very dapper Shirt (rbxassetid://86896487)](https://developer.roblox.com/assets/bltc8da647cb0295112/Shirt.jpg) The **Shirt** object displays a Shirt texture from the Roblox website on a [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) rig. Shirts cover the torso and arms, and will take priority over a [Pants](https://developer.roblox.com/en-us/api-reference/class/Pants) on the torso. To be visible, a Shirt must be a sibling of a Humanoid and have its [ShirtTemplate](https://developer.roblox.com/en-us/api-reference/property/Shirt/ShirtTemplate) property set to an appropriate texture (such as `rbxassetid://86896487`, pictured to the right). The shirt texture may be colorized using the [Clothing.Color3](https://developer.roblox.com/en-us/api-reference/property/Clothing/Color3) property.
@@ -6899,7 +7162,7 @@ interface Shirt extends Clothing {
 	 * 	model.Parent = workspace
 	 * end
 	 */
-	ShirtTemplate: string;
+	ShirtTemplate: ContentId;
 }
 
 /** The **ShirtGraphic** object applies a texture to the front surface of a character's torso. It is used to display t-shirts. */
@@ -6940,7 +7203,7 @@ interface ShirtGraphic extends CharacterAppearance {
 	 * 	model.Parent = workspace
 	 * end
 	 */
-	Graphic: string;
+	Graphic: ContentId;
 }
 
 /** The **Chat** service houses the Lua code responsible for running the [Lua Chat System](https://developer.roblox.com/en-us/articles/lua-chat-system). Similar to [StarterPlayerScripts](https://developer.roblox.com/en-us/api-reference/class/StarterPlayerScripts), default objects like [Scripts](https://developer.roblox.com/en-us/api-reference/class/Script) and [ModuleScripts](https://developer.roblox.com/en-us/api-reference/class/ModuleScript) are inserted into the service.
@@ -7143,7 +7406,7 @@ interface ClickDetector extends Instance {
 	 * 
 	 * ![Custom cursor icon](https://developer.roblox.com/assets/blt59eec7aa0c76851a/InterestCursorIcon.png)
 	 */
-	CursorIcon: string;
+	CursorIcon: ContentId;
 	/**
 	 * The MaxActivationDistance property controls the maximum distance, in studs, between a [Character](https://developer.roblox.com/en-us/api-reference/property/Player/Character) and the [ClickDetector](https://developer.roblox.com/en-us/api-reference/class/ClickDetector) for the character to be able to click it. This is used to limit from how far a player can interact with a ClickDetector.
 	 * 
@@ -7203,7 +7466,7 @@ interface DragDetector extends ClickDetector {
 	 * @deprecated
 	 */
 	readonly _nominal_DragDetector: unique symbol;
-	ActivatedCursorIcon: string;
+	ActivatedCursorIcon: ContentId;
 	ApplyAtCenterOfMass: boolean;
 	/**
 	 * Tags: NotReplicated
@@ -7247,8 +7510,31 @@ interface DragDetector extends ClickDetector {
 	SetDragStyleFunction(this: DragDetector, callback: Callback): void;
 	SetPermissionPolicyFunction(this: DragDetector, callback: Callback): void;
 	readonly DragContinue: RBXScriptSignal<(playerWhoDragged: Player, cursorRay: Ray, viewFrame: CFrame, vrInputFrame: CFrame | undefined, isModeSwitchKeyDown: boolean) => void>;
+	/**
+	 * Tags: Hidden
+	 */
+	readonly DragContinueReplicate: RBXScriptSignal<(playerWhoDragged: Player, cursorRay: Ray, viewFrame: CFrame, vrInputFrame: CFrame | undefined, isModeSwitchKeyDown: boolean) => void>;
 	readonly DragEnd: RBXScriptSignal<(playerWhoDragged: Player) => void>;
+	/**
+	 * Tags: Hidden
+	 */
+	readonly DragEndReplicate: RBXScriptSignal<(playerWhoDragged: Player) => void>;
 	readonly DragStart: RBXScriptSignal<(playerWhoDragged: Player, cursorRay: Ray, viewFrame: CFrame, hitFrame: CFrame, clickedPart: BasePart, vrInputFrame: CFrame | undefined, isModeSwitchKeyDown: boolean) => void>;
+	/**
+	 * Tags: Hidden
+	 */
+	readonly DragStartReplicate: RBXScriptSignal<(playerWhoDragged: Player, cursorRay: Ray, viewFrame: CFrame, hitFrame: CFrame, clickedPart: BasePart, vrInputFrame: CFrame | undefined, isModeSwitchKeyDown: boolean) => void>;
+}
+
+interface CloudCRUDService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_CloudCRUDService: unique symbol;
 }
 
 /** The **Clouds** object renders realistic clouds that drift slowly across the sky. Both cloud cover and density can be adjusted, as well as cloud color to achieve atmospheres like stormy skies, moody sunsets, alien worlds, etc.
@@ -7303,8 +7589,13 @@ interface Collaborator extends Instance {
 	CFrame: CFrame;
 	/**
 	 * Tags: Hidden
+	 * @deprecated Use `CollaboratorColor3` instead
 	 */
 	CollaboratorColor: number;
+	/**
+	 * Tags: Hidden
+	 */
+	CollaboratorColor3: Color3;
 	/**
 	 * Tags: Hidden
 	 */
@@ -7370,10 +7661,12 @@ interface CollectionService extends Instance {
 	 * AddTag will apply a tag to an object. This method will not throw an error if the object already had the tag. Successfully adding a tag will fire a signal created by [CollectionService:GetInstanceAddedSignal](https://developer.roblox.com/en-us/api-reference/function/CollectionService/GetInstanceAddedSignal) with the given tag.
 	 * 
 	 * **Warning:** When tagging an object, it is common that some resources are used to give the tag its functionality, e.g. event connections or tables. To prevent memory leaks, it is a good idea to clean these up (disconnect, set to nil, etc) when no longer needed for a tag. Do this when calling [CollectionService:RemoveTag](https://developer.roblox.com/en-us/api-reference/function/CollectionService/RemoveTag), calling [Instance:Destroy](https://developer.roblox.com/en-us/api-reference/function/Instance/Destroy) or in a function connected to a signal returned by [CollectionService:GetInstanceRemovedSignal](https://developer.roblox.com/en-us/api-reference/function/CollectionService/GetInstanceRemovedSignal).
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	AddTag(this: CollectionService, instance: Instance, tag: string): void;
 	AddTag(this: Instance, tag: string): void;
-	GetAllTags(this: CollectionService): unknown;
+	GetAllTags(this: CollectionService): Array<string>;
 	/**
 	 * GetInstanceAdded is given a tag (a string) and returns a signal which fires under two conditions:
 	 * 
@@ -7413,6 +7706,8 @@ interface CollectionService extends Instance {
 	 * print("The object " .. object:GetFullName() .. " has tags: " .. table.concat(tags, ", "))
 	 * 
 	 * This method is useful when you want to do something with multiple tags at once on an object. However, it would be inefficient to use this method to check for the existence of a single tag. For this, use [CollectionService:HasTag](https://developer.roblox.com/en-us/api-reference/function/CollectionService/HasTag) to check for a single tag.
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	GetTags(this: CollectionService, instance: Instance): Array<string>;
 	GetTags(this: Instance): Array<string>;
@@ -7423,6 +7718,8 @@ interface CollectionService extends Instance {
 	 * *   Using [CollectionService:RemoveTag](https://developer.roblox.com/en-us/api-reference/function/CollectionService/RemoveTag) to remove the tag will cause this method to return false.
 	 * 
 	 * By extension, any tags returned by a call to `CollectionServiec/GetTags` on an object will return true when used with this method.
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	HasTag(this: CollectionService, instance: Instance, tag: string): boolean;
 	HasTag(this: Instance, tag: string): boolean;
@@ -7430,6 +7727,8 @@ interface CollectionService extends Instance {
 	 * RemoveTag will remove some tag from some object. This method will not throw an error if the object did not have the tag in the first place. Successfully removing a tag will fire a signal created by [CollectionService:GetInstanceRemovedSignal](https://developer.roblox.com/en-us/api-reference/function/CollectionService/GetInstanceRemovedSignal) with the given tag.
 	 * 
 	 * When removing a tag, it is common that some resources are used to give the tag its functionality, e.g. event connections or tables. To prevent memory leaks, it is a good idea to clean these up (disconnect, set to nil, etc) when no longer needed for a tag.
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	RemoveTag(this: CollectionService, instance: Instance, tag: string): void;
 	RemoveTag(this: Instance, tag: string): void;
@@ -7479,6 +7778,24 @@ interface CommandService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_CommandService: unique symbol;
+}
+
+interface CommerceService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_CommerceService: unique symbol;
+	PromptCommerceProductPurchase(this: CommerceService, user: Player, commerceProductId: number): void;
+	PromptRealWorldCommerceBrowser(this: CommerceService, player: Player, url: string): void;
+	/**
+	 * Tags: Yields
+	 */
+	UserEligibleForRealWorldCommerceAsync(this: CommerceService): boolean;
+	readonly PromptCommerceProductPurchaseFinished: RBXScriptSignal<(user: Player, productId: number) => void>;
 }
 
 /** The Configuration object is a container object that is designed to hold value objects to make values used in [Tool](https://developer.roblox.com/en-us/api-reference/class/Tool)s or any model using [Script](https://developer.roblox.com/en-us/api-reference/class/Script)s more accessible.
@@ -8956,20 +9273,20 @@ interface ContentProvider extends Instance {
 	 * Tags: NotReplicated
 	 */
 	readonly RequestQueueSize: number;
-	GetAssetFetchStatus(this: ContentProvider, contentId: string): Enum.AssetFetchStatus;
-	GetAssetFetchStatusChangedSignal(this: ContentProvider, contentId: string): RBXScriptSignal;
+	GetAssetFetchStatus(this: ContentProvider, contentId: ContentId): Enum.AssetFetchStatus;
+	GetAssetFetchStatusChangedSignal(this: ContentProvider, contentId: ContentId): RBXScriptSignal;
 	ListEncryptedAssets(this: ContentProvider): unknown;
 	/**
 	 * Usually, content is loaded only when it starts being used. That explains why it often takes a moment for an image to appear in a [GUI](https://developer.roblox.com/en-us/api-reference/class/GuiObject), or a [mesh](https://developer.roblox.com/en-us/api-reference/class/Mesh) to appear in a [part](https://developer.roblox.com/en-us/api-reference/class/BasePart), or why a [sound](https://developer.roblox.com/en-us/api-reference/class/Sound) doesn't play for the first time. All because the asset has not yet finished loading. Preload is used to load this content beforehand, so that it works instantly.
 	 * @deprecated Use `PreloadAsync` instead
 	 */
-	Preload(this: ContentProvider, contentId: string): void;
+	Preload(this: ContentProvider, contentId: ContentId): void;
 	RegisterDefaultEncryptionKey(this: ContentProvider, encryptionKey: string): void;
 	RegisterDefaultSessionKey(this: ContentProvider, sessionKey: string): void;
-	RegisterEncryptedAsset(this: ContentProvider, assetId: string, encryptionKey: string): void;
-	RegisterSessionEncryptedAsset(this: ContentProvider, contentId: string, sessionKey: string): void;
+	RegisterEncryptedAsset(this: ContentProvider, assetId: ContentId, encryptionKey: string): void;
+	RegisterSessionEncryptedAsset(this: ContentProvider, contentId: ContentId, sessionKey: string): void;
 	UnregisterDefaultEncryptionKey(this: ContentProvider): void;
-	UnregisterEncryptedAsset(this: ContentProvider, assetId: string): void;
+	UnregisterEncryptedAsset(this: ContentProvider, assetId: ContentId): void;
 	/**
 	 * Yields until all of the assets associated with the given [Instances](https://developer.roblox.com/en-us/api-reference/class/Instance) have loaded and takes an array of [Instances](https://developer.roblox.com/en-us/api-reference/class/Instance) as a parameter.
 	 * 
@@ -8984,7 +9301,7 @@ interface ContentProvider extends Instance {
 		contentIdList: Array<Instance | string>,
 		callback?: (contentId: string, status: Enum.AssetFetchStatus) => void,
 	): void;
-	readonly AssetFetchFailed: RBXScriptSignal<(assetId: string) => void>;
+	readonly AssetFetchFailed: RBXScriptSignal<(assetId: ContentId) => void>;
 }
 
 /** ContextActionService is a game service that allows a game to bind user input to contextual actions, or actions that are only enabled under some condition or period of time. For example, allowing a player to open a door only while close by. In code, an action is simply a string (the name of the action) used by the service to differentiate between unique actions. The action string is provided to [BindAction](https://developer.roblox.com/en-us/api-reference/function/ContextActionService/BindAction) and [UnbindAction](https://developer.roblox.com/en-us/api-reference/function/ContextActionService/UnbindAction), among other member functions. If two actions are bound to the same input, the most recently bound will take priority. When the most recent action is unbound, the one bound before that takes control again. Since ContextActionService deals with user input, you can only use it in [LocalScripts](https://developer.roblox.com/en-us/api-reference/class/LocalScript) which run on the client.
@@ -9492,6 +9809,17 @@ interface CreationDBService extends Instance {
 	readonly _nominal_CreationDBService: unique symbol;
 }
 
+interface CreatorStoreService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_CreatorStoreService: unique symbol;
+}
+
 interface CrossDMScriptChangeListener extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -9670,33 +9998,144 @@ interface EditableMesh extends DataModelMesh {
 	 * @deprecated
 	 */
 	readonly _nominal_EditableMesh: unique symbol;
+	SkinningEnabled: boolean;
+	AddColor(this: EditableMesh, color: Color3, alpha: number): number;
+	AddNormal(this: EditableMesh, normal: Vector3 | undefined): number;
 	AddTriangle(this: EditableMesh, vertexId0: number, vertexId1: number, vertexId2: number): number;
+	AddUV(this: EditableMesh, uv: Vector2): number;
 	AddVertex(this: EditableMesh, p: Vector3): number;
-	FindClosestPointOnSurface(this: EditableMesh, point: Vector3): unknown;
+	FindClosestPointOnSurface(this: EditableMesh, point: Vector3): LuaTuple<[number, Vector3, Vector3]>;
 	FindClosestVertex(this: EditableMesh, toThisPoint: Vector3): number;
-	FindVerticesWithinSphere(this: EditableMesh, center: Vector3, radius: number): unknown;
-	GetAdjacentTriangles(this: EditableMesh, triangleId: number): unknown;
-	GetAdjacentVertices(this: EditableMesh, vertexId: number): unknown;
+	FindVerticesWithinSphere(this: EditableMesh, center: Vector3, radius: number): Array<number>;
+	GetAdjacentFaces(this: EditableMesh, faceId: number): unknown;
+	/**
+	 * @deprecated
+	 */
+	GetAdjacentTriangles(this: EditableMesh, triangleId: number): Array<number>;
+	GetAdjacentVertices(this: EditableMesh, vertexId: number): Array<number>;
+	GetColor(this: EditableMesh, colorId: number): Color3 | undefined;
+	GetColorAlpha(this: EditableMesh, colorId: number): number | undefined;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetColors(this: EditableMesh): unknown;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetFaceColors(this: EditableMesh, faceId: number): unknown;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetFaceNormals(this: EditableMesh, faceId: number): unknown;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetFaceUVs(this: EditableMesh, faceId: number): unknown;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetFaceVertices(this: EditableMesh, faceId: number): unknown;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetFaces(this: EditableMesh): unknown;
+	GetFacesWithAttribute(this: EditableMesh, id: number): unknown;
+	GetNormal(this: EditableMesh, normalId: number): Vector3 | undefined;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetNormals(this: EditableMesh): unknown;
 	GetPosition(this: EditableMesh, vertexId: number): Vector3;
-	GetTriangleVertices(this: EditableMesh, triangleId: number): unknown;
-	GetTriangles(this: EditableMesh): unknown;
-	GetUV(this: EditableMesh, vertexId: number): Vector2;
+	/**
+	 * @deprecated
+	 */
+	GetTriangleVertices(this: EditableMesh, triangleId: number): LuaTuple<[number, number, number]>;
+	/**
+	 * @deprecated
+	 */
+	GetTriangles(this: EditableMesh): Array<number>;
+	GetUV(this: EditableMesh, uvId: number): Vector2 | undefined;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	GetUVs(this: EditableMesh): unknown;
+	/**
+	 * @deprecated
+	 */
 	GetVertexColor(this: EditableMesh, vertexId: number): Color3;
+	/**
+	 * @deprecated
+	 */
 	GetVertexColorAlpha(this: EditableMesh, vertexId: number): number;
+	/**
+	 * @deprecated
+	 */
 	GetVertexNormal(this: EditableMesh, vertexId: number): Vector3;
-	GetVertices(this: EditableMesh): unknown;
-	RaycastLocal(this: EditableMesh, origin: Vector3, direction: Vector3): unknown;
+	GetVertices(this: EditableMesh): Array<number>;
+	GetVerticesWithAttribute(this: EditableMesh, id: number): unknown;
+	IdDebugString(this: EditableMesh, id: number): string;
+	MergeVertices(this: EditableMesh, mergeTolerance: number): object;
+	RaycastLocal(this: EditableMesh, origin: Vector3, direction: Vector3): LuaTuple<[number, Vector3, Vector3]>;
+	RemoveFace(this: EditableMesh, faceId: number): void;
+	/**
+	 * @deprecated
+	 */
 	RemoveTriangle(this: EditableMesh, triangleId: number): void;
+	RemoveUnused(this: EditableMesh): unknown;
+	/**
+	 * @deprecated
+	 */
 	RemoveVertex(this: EditableMesh, vertexId: number): void;
+	ResetNormal(this: EditableMesh, normalId: number): void;
+	SetColor(this: EditableMesh, colorId: number, color: Color3): void;
+	SetColorAlpha(this: EditableMesh, colorId: number, alpha: number): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetFaceColors(this: EditableMesh, faceId: number, ids: Array<any>): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetFaceNormals(this: EditableMesh, faceId: number, ids: Array<any>): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetFaceUVs(this: EditableMesh, faceId: number, ids: Array<any>): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	SetFaceVertices(this: EditableMesh, faceId: number, ids: Array<any>): void;
+	SetNormal(this: EditableMesh, normalId: number, normal: Vector3): void;
 	SetPosition(this: EditableMesh, vertexId: number, p: Vector3): void;
-	SetUV(this: EditableMesh, vertexId: number, uv: Vector2): void;
+	SetUV(this: EditableMesh, uvId: number, uv: Vector2): void;
+	/**
+	 * @deprecated
+	 */
 	SetVertexColor(this: EditableMesh, vertexId: number, color: Color3): void;
+	/**
+	 * @deprecated
+	 */
 	SetVertexColorAlpha(this: EditableMesh, vertexId: number, alpha: number): void;
+	/**
+	 * @deprecated
+	 */
 	SetVertexNormal(this: EditableMesh, vertexId: number, vnormal: Vector3): void;
+	Triangulate(this: EditableMesh): void;
 	/**
 	 * Tags: Yields
 	 */
-	CreateMeshPartAsync(this: EditableMesh, collisionFidelity: CastsToEnum<Enum.CollisionFidelity>): MeshPart;
+	CreateMeshPartAsync(this: EditableMesh, options?: object): MeshPart;
+}
+
+interface RobloxEditableMesh extends EditableMesh {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_RobloxEditableMesh: unique symbol;
 }
 
 /** The FileMesh object applies a textured mesh to a [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart) when parented to it. Its properties are inherited by the [SpecialMesh](https://developer.roblox.com/en-us/api-reference/class/SpecialMesh) object.
@@ -9729,7 +10168,7 @@ interface FileMesh extends DataModelMesh {
 	 * 
 	 * Meshes can currently only be be uploaded using [MeshPart](https://developer.roblox.com/en-us/api-reference/class/MeshPart)s or the game explorer. Once uploaded however, the content ID for the mesh can be used for the MeshId property. For more information on how to do this please see [this tutorial](https://developer.roblox.com/en-us/articles/mesh-parts).
 	 */
-	MeshId: string;
+	MeshId: ContentId;
 	/**
 	 * The TextureId is the content ID of the image that is to be applied to used for the meshes texture. When the TextureId property is set to an empty string, no texture will be applied to the mesh.
 	 * 
@@ -9745,7 +10184,7 @@ interface FileMesh extends DataModelMesh {
 	 * 
 	 * A mesh can only be textured if the mesh has been UV mapped. UV mapping refers to the practice of projecting a texture map onto a mesh. This cannot be done using Roblox Studio and has to be done using an external 3D modelling application such as [Blender](https://www.blender.org/).
 	 */
-	TextureId: string;
+	TextureId: ContentId;
 }
 
 /** The SpecialMesh is an object that allows developers to provide a standard template or user uploaded mesh to a [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart).
@@ -10012,7 +10451,7 @@ interface DataStoreKeyInfo extends Instance {
 	 * 
 	 * *   [Data Stores](https://developer.roblox.com/en-us/articles/data-store), an in-depth guide on data structure, management, error handling, etc.
 	 */
-	GetUserIds(this: DataStoreKeyInfo): unknown;
+	GetUserIds(this: DataStoreKeyInfo): Array<number>;
 }
 
 /** An instance describing version information for a key, including the version string, created time, and whether it has been marked as deleted.
@@ -10602,20 +11041,29 @@ interface EditableImage extends Instance {
 	Size: Vector2;
 	Copy(this: EditableImage, min: Vector2, max: Vector2): EditableImage;
 	Crop(this: EditableImage, min: Vector2, max: Vector2): void;
-	DrawCircle(this: EditableImage, center: Vector2, radius: number, color: Color3, transparency: number): void;
+	DrawCircle(this: EditableImage, center: Vector2, radius: number, color: Color3, transparency: number, combineType: CastsToEnum<Enum.ImageCombineType>): void;
 	DrawImage(this: EditableImage, position: Vector2, image: EditableImage, combineType: CastsToEnum<Enum.ImageCombineType>): void;
-	DrawLine(this: EditableImage, p1: Vector2, p2: Vector2, color: Color3, transparency: number): void;
-	DrawRectangle(this: EditableImage, position: Vector2, size: Vector2, color: Color3, transparency: number): void;
+	DrawLine(this: EditableImage, p1: Vector2, p2: Vector2, color: Color3, transparency: number, combineType: CastsToEnum<Enum.ImageCombineType>): void;
+	DrawProjectionImage(this: EditableImage, mesh: EditableMesh, projection: object, brushConfig: object): void;
+	DrawRectangle(this: EditableImage, position: Vector2, size: Vector2, color: Color3, transparency: number, combineType: CastsToEnum<Enum.ImageCombineType>): void;
 	/**
 	 * Tags: CustomLuaState
 	 */
-	ReadPixels(this: EditableImage, position: Vector2, size: Vector2): unknown;
+	ReadPixels(this: EditableImage, position: Vector2, size: Vector2): Array<number>;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	ReadPixelsBuffer(this: EditableImage, position: Vector2, size: Vector2): buffer;
 	Resize(this: EditableImage, size: Vector2): void;
 	Rotate(this: EditableImage, degrees: number, changeSize: boolean): void;
 	/**
 	 * Tags: CustomLuaState
 	 */
 	WritePixels(this: EditableImage, position: Vector2, size: Vector2, pixels: Array<any>): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	WritePixelsBuffer(this: EditableImage, position: Vector2, size: Vector2, buffer: buffer): void;
 }
 
 interface RobloxEditableImage extends EditableImage {
@@ -10629,7 +11077,7 @@ interface RobloxEditableImage extends EditableImage {
 	readonly _nominal_RobloxEditableImage: unique symbol;
 }
 
-interface EngineAPICloudProcessingService extends Instance {
+interface EditableService extends Instance {
 	/**
 	 * **DO NOT USE!**
 	 *
@@ -10637,7 +11085,7 @@ interface EngineAPICloudProcessingService extends Instance {
 	 * @hidden
 	 * @deprecated
 	 */
-	readonly _nominal_EngineAPICloudProcessingService: unique symbol;
+	readonly _nominal_EditableService: unique symbol;
 }
 
 /** A EulerRotation Curve represents a 3D rotation curve, it groups 3 [FloatCurves](https://developer.roblox.com/en-us/api-reference/class/FloatCurve), stored as 3 FloatCurve child instances. The rotation is decomposed in 3 Euler angles channels that can be accessed via [EulerRotationCurve:X](https://developer.roblox.com/en-us/api-reference/function/EulerRotationCurve/X), [EulerRotationCurve:Y](https://developer.roblox.com/en-us/api-reference/function/EulerRotationCurve/Y), [EulerRotationCurve:Z](https://developer.roblox.com/en-us/api-reference/function/EulerRotationCurve/Z) methods. The 3 axes can be sampled simultaneously via the method [EulerRotationCurve:GetAnglesAtTime](https://developer.roblox.com/en-us/api-reference/function/EulerRotationCurve/GetAnglesAtTime) returning the 3 Euler angles as a Vector3. Similarly, [EulerRotationCurve:GetRotationAtTime](https://developer.roblox.com/en-us/api-reference/function/EulerRotationCurve/GetRotationAtTime) samples all channels simultaneously but returns a CFrame rotated by X, Y, and Z according to the specified rotation order. */
@@ -10687,6 +11135,17 @@ interface EventIngestService extends Instance {
 	readonly _nominal_EventIngestService: unique symbol;
 }
 
+interface ExampleService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ExampleService: unique symbol;
+}
+
 interface ExperienceAuthService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -10722,10 +11181,12 @@ interface ExperienceNotificationService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_ExperienceNotificationService: unique symbol;
+	PromptOptIn(this: ExperienceNotificationService): void;
 	/**
 	 * Tags: Yields
 	 */
-	CreateUserNotificationAsync(this: ExperienceNotificationService, userId: string, userNotification: UserNotification): Instance | undefined;
+	CanPromptOptInAsync(this: ExperienceNotificationService): boolean;
+	readonly OptInPromptClosed: RBXScriptSignal<() => void>;
 }
 
 interface ExperienceService extends Instance {
@@ -10748,6 +11209,42 @@ interface ExperienceStateCaptureService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_ExperienceStateCaptureService: unique symbol;
+}
+
+interface ExplorerFilterAutocompleterInstance extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ExplorerFilterAutocompleterInstance: unique symbol;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly ReplaceRange: Vector2;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly RequiresOutsideContext: boolean;
+	GetSuggestions(this: ExplorerFilterAutocompleterInstance): unknown;
+}
+
+interface ExplorerFilterInstance extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ExplorerFilterInstance: unique symbol;
+	GetAutocompleter(this: ExplorerFilterInstance): ExplorerFilterAutocompleterInstance;
+	GetErrors(this: ExplorerFilterInstance): unknown;
+	GetLexemes(this: ExplorerFilterInstance): unknown;
+	InstancePassesFilter(this: ExplorerFilterInstance, instance: Instance): boolean;
+	SetFilter(this: ExplorerFilterInstance, search: string): void;
 }
 
 /** An Explosion applies force to `BaseParts` within the explosion's [Explosion.BlastRadius](https://developer.roblox.com/en-us/api-reference/property/Explosion/BlastRadius). This force breaks joints between parts and kills [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) characters not protected by a [ForceField](https://developer.roblox.com/en-us/api-reference/class/ForceField).
@@ -10813,6 +11310,10 @@ interface Explosion extends Instance {
 	 * If ExplosionType is set to create craters in [Terrain](https://developer.roblox.com/en-us/api-reference/class/Terrain), the radius of the crater will be roughly equal to the [Explosion.BlastRadius](https://developer.roblox.com/en-us/api-reference/property/Explosion/BlastRadius). Craters are created in all [Terrain](https://developer.roblox.com/en-us/api-reference/class/Terrain) materials other than water. The size of the crater is not influenced by the material, although some materials create rougher edges than others.
 	 */
 	ExplosionType: Enum.ExplosionType;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
 	/**
 	 * This property is the position of the center of the [Explosion](https://developer.roblox.com/en-us/api-reference/class/Explosion). It is defined in world-space and not influenced by the [Explosion](https://developer.roblox.com/en-us/api-reference/class/Explosion)'s parent.
 	 * 
@@ -10963,7 +11464,7 @@ interface Decal extends FaceInstance {
 	 * *   Paste the URL into the Texture property in Roblox Studio. Roblox will automatically update the property to the correct Content ID. Note this only works in Roblox Studio and cannot be done from Scripts or whilst the game is running.
 	 * *   Insert the Decal into the game, this is generally done through the Toolbox under 'My Decals'. The Content ID can be found in the decal that is inserted. Note, [InsertService:LoadAsset](https://developer.roblox.com/en-us/api-reference/function/InsertService/LoadAsset) can also be used if developers wish to automate this method.
 	 */
-	Texture: string;
+	Texture: ContentId;
 	/**
 	 * Determines the transparency of the [Decal](https://developer.roblox.com/en-us/api-reference/class/Decal) with 0 being completely opaque and 1 completely transparent.
 	 * 
@@ -11251,6 +11752,10 @@ interface Fire extends Instance {
 	 */
 	Heat: number;
 	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
+	/**
 	 * The SecondaryColor property determines the color of the smaller particles emit by a [Fire](https://developer.roblox.com/en-us/api-reference/class/Fire) object. It is essentially the color of the inner portion of the flame. Below, you can see the SecondaryColor of the flame is set to white to differentiate with the larger, outer particles which have [Fire.Color](https://developer.roblox.com/en-us/api-reference/property/Fire/Color) set to blue. It should be noted that the inner particles use a [ParticleEmitter.LightEmission](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/LightEmission) of 1, so darker colors will instead cause the particles to appear transparent (and therefore black will stop rendering inner particles altogether).
 	 * 
 	 * ![A Fire with SecondaryColor set to white](https://developer.roblox.com/assets/blt925890091ac70b39/Fire_Colors.png)
@@ -11295,11 +11800,11 @@ interface FloatCurve extends Instance {
 	/**
 	 * The first returned value is the index of the last key with key.time <= time (or min(1,length) if no key was found). The second returned value is the index of the first key with key.time >= time or the length of the curve if no key was found satisfying the inequality.
 	 */
-	GetKeyIndicesAtTime(this: FloatCurve, time: number): unknown;
+	GetKeyIndicesAtTime(this: FloatCurve, time: number): [before: number, after: number];
 	/**
 	 * Returns a copy of all the keys in the FloatCurve as a Lua array of FloatCurveKey.
 	 */
-	GetKeys(this: FloatCurve): unknown;
+	GetKeys(this: FloatCurve): Array<FloatCurveKey>;
 	/**
 	 * Samples the float curve at a given time passed as argument.
 	 */
@@ -11307,7 +11812,7 @@ interface FloatCurve extends Instance {
 	/**
 	 * Adds the key passed as argument to this curve. If a key exists at the same time it will be replaced. First return value is true if a key was added, false if a previous key was replaced. Second return value is the index at which the marker was added.
 	 */
-	InsertKey(this: FloatCurve, key: FloatCurveKey): unknown;
+	InsertKey(this: FloatCurve, key: FloatCurveKey): [isNew: boolean, index: number];
 	/**
 	 * Removes a given number of Keys starting from a given index. Returns the number of keys that were removed.
 	 */
@@ -11525,6 +12030,17 @@ interface GamepadService extends Instance {
 	EnableGamepadCursor(this: GamepadService, guiObject: GuiObject | undefined): void;
 }
 
+interface GenericChallengeService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_GenericChallengeService: unique symbol;
+}
+
 interface GeometryService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -11534,19 +12050,39 @@ interface GeometryService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_GeometryService: unique symbol;
-	CalculateConstraintsToPreserve(this: GeometryService, source: Instance, destination: Array<any>, options?: object): unknown;
+	CalculateConstraintsToPreserve(
+		this: GeometryService,
+		source: Instance,
+		destination: ReadonlyArray<Instance>,
+		options?: CalculateConstraintsToPreserveConfig,
+	): Array<unknown>;
 	/**
 	 * Tags: Yields
 	 */
-	IntersectAsync(this: GeometryService, part: BasePart, parts: Array<any>, options?: object): unknown;
+	IntersectAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
 	/**
 	 * Tags: Yields
 	 */
-	SubtractAsync(this: GeometryService, part: BasePart, parts: Array<any>, options?: object): unknown;
+	SubtractAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
 	/**
 	 * Tags: Yields
 	 */
-	UnionAsync(this: GeometryService, part: BasePart, parts: Array<any>, options?: object): unknown;
+	UnionAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
 }
 
 interface GetTextBoundsParams extends Instance {
@@ -11559,6 +12095,7 @@ interface GetTextBoundsParams extends Instance {
 	 */
 	readonly _nominal_GetTextBoundsParams: unique symbol;
 	Font: Font;
+	RichText: boolean;
 	Size: number;
 	Text: string;
 	Width: number;
@@ -12924,11 +13461,11 @@ interface ImageButton extends GuiButton {
 	/**
 	 * A textureId that could be set on the [ImageButton's](https://developer.roblox.com/en-us/api-reference/class/ImageButton) properties. When the button is hovered, it will render HoverImage if specified.
 	 */
-	HoverImage: string;
+	HoverImage: ContentId;
 	/**
 	 * The Image property is a content-type property that should hold the asset ID of a Decal or Image on the Roblox website. It functions identically to [Decal.Texture](https://developer.roblox.com/en-us/api-reference/property/Decal/Texture) with regards to loading the image from the Roblox website. The rendered image will be colorized using [ImageButton.ImageColor3](https://developer.roblox.com/en-us/api-reference/property/ImageButton/ImageColor3). It is possible to make the image render as tiled, scaled to fit, or 9-sliced, by adjusting the [ImageButton.ScaleType](https://developer.roblox.com/en-us/api-reference/property/ImageButton/ScaleType) property.
 	 */
-	Image: string;
+	Image: ContentId;
 	/**
 	 * The ImageColor3 property determines how an image is colorized. When set to white, no colorization occurs. This property is very useful for reusing image assets: If the source image is completely white with transparency, you can set the entire color of the image at once with this property.
 	 */
@@ -12958,7 +13495,7 @@ interface ImageButton extends GuiButton {
 	/**
 	 * A texture ID that can be set as an [ImageButton](https://developer.roblox.com/en-us/api-reference/class/ImageButton) property. When the button is pressed, it will render this image.
 	 */
-	PressedImage: string;
+	PressedImage: ContentId;
 	/**
 	 * Determines how the image looks when it is scaled.
 	 * 
@@ -13082,6 +13619,11 @@ interface TextButton extends GuiButton {
 	 * Setting the property to -1 disables the limit and shows the entirety of the [TextButton.Text](https://developer.roblox.com/en-us/api-reference/property/TextButton/Text).
 	 */
 	MaxVisibleGraphemes: number;
+	OpenTypeFeatures: string;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly OpenTypeFeaturesError: string;
 	/**
 	 * This property determines whether the [TextButton](https://developer.roblox.com/en-us/api-reference/class/TextButton) renders the [TextButton.Text](https://developer.roblox.com/en-us/api-reference/property/TextButton/Text) string using rich text formatting. Rich text uses simple markup tags to style sections of the string in bold, italics, specific colors, and more.
 	 * 
@@ -13252,7 +13794,7 @@ interface ImageLabel extends GuiLabel {
 	/**
 	 * The Image property is a content-type property that should hold the asset ID of a Decal or Image on the Roblox website. It functions identically to [Decal.Texture](https://developer.roblox.com/en-us/api-reference/property/Decal/Texture) with regards to loading the image from the Roblox website. The rendered image will be colorized using [ImageLabel.ImageColor3](https://developer.roblox.com/en-us/api-reference/property/ImageLabel/ImageColor3). It is possible to make the image render as tiled, scaled to fit, or 9-sliced, by adjusting the [ImageLabel.ScaleType](https://developer.roblox.com/en-us/api-reference/property/ImageLabel/ScaleType) property.
 	 */
-	Image: string;
+	Image: ContentId;
 	/**
 	 * The ImageColor3 property determines how an image is colorized. When set to white, no colorization occurs. This property is very useful for reusing image assets: If the source image is completely white with transparency, you can set the entire color of the image at once with this property.
 	 */
@@ -13406,6 +13948,11 @@ interface TextLabel extends GuiLabel {
 	 * Setting the property to -1 disables the limit and shows the entirety of the [TextLabel.Text](https://developer.roblox.com/en-us/api-reference/property/TextLabel/Text).
 	 */
 	MaxVisibleGraphemes: number;
+	OpenTypeFeatures: string;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly OpenTypeFeaturesError: string;
 	/**
 	 * This property determines whether the [TextLabel](https://developer.roblox.com/en-us/api-reference/class/TextLabel) renders the [TextLabel.Text](https://developer.roblox.com/en-us/api-reference/property/TextLabel/Text) string using rich text formatting. Rich text uses simple markup tags to style sections of the string in bold, italics, specific colors, and more.
 	 * 
@@ -13574,7 +14121,7 @@ interface ScrollingFrame extends GuiObject {
 	/**
 	 * The Down image on the vertical scrollbar. Size of this is always ScrollBarThickness by ScrollBarThickness. This is also used as the image on the horizontal scroll bar.
 	 */
-	BottomImage: string;
+	BottomImage: ContentId;
 	/**
 	 * The location within the canvas, in pixels, that should be drawn at the top left of the scroll frame
 	 */
@@ -13633,7 +14180,7 @@ interface ScrollingFrame extends GuiObject {
 	/**
 	 * The middle image on the vertical scrollbar. The size of this can vary in the y direction, but is always set as [ScrollingFrame.ScrollBarThickness](https://developer.roblox.com/en-us/api-reference/property/ScrollingFrame/ScrollBarThickness) in the x direction. This is also used as the middle image on the horizontal scroll bar.
 	 */
-	MidImage: string;
+	MidImage: ContentId;
 	/**
 	 * Determines how a scrolling bar image is colorized. When set to white, no colorization occurs. This property is very useful for reusing image assets: If the source image is completely white with transparency, you can set the entire color of the image at once with this property.
 	 */
@@ -13701,7 +14248,7 @@ interface ScrollingFrame extends GuiObject {
 	/**
 	 * The Up image on the vertical scrollbar. The size of this is always ScrollBarThickness by ScrollBarThickness. This is also used as the left image on the horizontal scroll bar.
 	 */
-	TopImage: string;
+	TopImage: ContentId;
 	/**
 	 * Indicates the inset behavior of the vertical scrolling bar.
 	 */
@@ -13799,6 +14346,11 @@ interface TextBox extends GuiObject {
 	 * When set to true, text inside a TextBox is able to move onto multiple lines. This also enables players to use the enter key to move onto a new line.
 	 */
 	MultiLine: boolean;
+	OpenTypeFeatures: string;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly OpenTypeFeaturesError: string;
 	/**
 	 * Sets the text color that gets used when no text has been entered into the TextBox yet.
 	 */
@@ -14066,7 +14618,7 @@ interface VideoFrame extends GuiObject {
 	/**
 	 * The content ID of the video file a [VideoFrame](https://developer.roblox.com/en-us/api-reference/class/VideoFrame) object is associated with.
 	 */
-	Video: string;
+	Video: ContentId;
 	/**
 	 * This property determines how loud the [VideoFrame.Video](https://developer.roblox.com/en-us/api-reference/property/VideoFrame/Video) plays back. It can be set to a number between 0 and 100.
 	 */
@@ -14546,9 +15098,6 @@ interface ScreenGui extends LayerCollector {
 	 */
 	IgnoreGuiInset: boolean;
 	SafeAreaCompatibility: Enum.SafeAreaCompatibility;
-	/**
-	 * Tags: NotBrowsable
-	 */
 	ScreenInsets: Enum.ScreenInsets;
 }
 
@@ -14577,7 +15126,7 @@ interface AdGui extends SurfaceGuiBase {
 	readonly _nominal_AdGui: unique symbol;
 	AdShape: Enum.AdShape;
 	EnableVideoAds: boolean;
-	FallbackImage: string;
+	FallbackImage: ContentId;
 	/**
 	 * Tags: NotReplicated
 	 */
@@ -14722,7 +15271,7 @@ interface FloorWire extends GuiBase3d {
 	/**
 	 * Sets the texture to be displayed on the FloorWire.
 	 */
-	Texture: string;
+	Texture: ContentId;
 	/**
 	 * Sets the size of the texture used with the FloorWire.
 	 */
@@ -14984,7 +15533,7 @@ interface ImageHandleAdornment extends HandleAdornment {
 	/**
 	 * The image to draw for the adornment.
 	 */
-	Image: string;
+	Image: ContentId;
 	/**
 	 * The size in studs of the image.
 	 */
@@ -15300,13 +15849,16 @@ interface Path2D extends GuiBase {
 	 * @deprecated
 	 */
 	readonly _nominal_Path2D: unique symbol;
-	Color: Color3;
-	Position: UDim2;
+	Closed: boolean;
+	Color3: Color3;
 	Thickness: number;
 	Visible: boolean;
 	ZIndex: number;
+	GetBoundingRect(this: Path2D): Rect;
 	GetControlPoint(this: Path2D, index: number): Path2DControlPoint;
 	GetControlPoints(this: Path2D): unknown;
+	GetLength(this: Path2D): number;
+	GetMaxControlPoints(this: Path2D): number;
 	GetPositionOnCurve(this: Path2D, t: number): UDim2;
 	GetPositionOnCurveArcLength(this: Path2D, t: number): UDim2;
 	GetTangentOnCurve(this: Path2D, t: number): Vector2;
@@ -15315,6 +15867,7 @@ interface Path2D extends GuiBase {
 	RemoveControlPoint(this: Path2D, index: number): void;
 	SetControlPoints(this: Path2D, controlPoints: Array<any>): void;
 	UpdateControlPoint(this: Path2D, index: number, point: Path2DControlPoint): void;
+	readonly ControlPointChanged: RBXScriptSignal<() => void>;
 }
 
 /** The GuiService is a service which currently allows developers to control what [GuiObject](https://developer.roblox.com/en-us/api-reference/class/GuiObject) is currently being selected by the gamepad navigator. It also allows clients to check if Roblox's main menu is currently open.
@@ -15365,6 +15918,10 @@ interface GuiService extends Instance {
 	 */
 	readonly MenuIsOpen: boolean;
 	/**
+	 * Tags: NotReplicated
+	 */
+	readonly PreferredTextSize: Enum.PreferredTextSize;
+	/**
 	 * Tags: Hidden, NotReplicated
 	 */
 	readonly PreferredTransparency: number;
@@ -15392,10 +15949,12 @@ interface GuiService extends Instance {
 	 * Creates a gui selection group where gamepad gui navigation will only consider selectable gui objects that are within the group (children of selectionParent).
 	 * 
 	 * A use case is you have a menu pop open, but there are other selectable objects on the screen (maybe from previous menus), but you want to the user to only be able to select gui objects in the new menu.
+	 * @deprecated Use `SelectionGroup` instead
 	 */
 	AddSelectionParent(this: GuiService, selectionName: string, selectionParent: GuiObject): void;
 	/**
 	 * Functions similarly to [GuiService:AddSelectionParent](https://developer.roblox.com/en-us/api-reference/function/GuiService/AddSelectionParent), but you can give it a tuple of [GuiObject](https://developer.roblox.com/en-us/api-reference/class/GuiObject) that you want to be contained in the group.
+	 * @deprecated Use `SelectionGroup` instead
 	 */
 	AddSelectionTuple(this: GuiService, selectionName: string, selections: Array<GuiObject>): void;
 	/**
@@ -15409,6 +15968,7 @@ interface GuiService extends Instance {
 	 * *   [GuiService:InspectPlayerFromUserId](https://developer.roblox.com/en-us/api-reference/function/GuiService/InspectPlayerFromUserId), allows the Inspect Menu to appear showing the user that has the given [UserId](https://developer.roblox.com/en-us/api-reference/property/Player/UserId). This is especially useful when you want to inspect players who aren't in the current game
 	 */
 	CloseInspectMenu(this: GuiService): void;
+	DismissNotification(this: GuiService, notificationId: string): boolean;
 	/**
 	 * Returns a boolean indicating whether or not the player Emotes menu is open.
 	 * 
@@ -15481,9 +16041,11 @@ interface GuiService extends Instance {
 	IsTenFootInterface(this: GuiService): boolean;
 	/**
 	 * Removes a group that was created with [GuiService:AddSelectionParent](https://developer.roblox.com/en-us/api-reference/function/GuiService/AddSelectionParent) or [GuiService:AddSelectionTuple](https://developer.roblox.com/en-us/api-reference/function/GuiService/AddSelectionTuple).
+	 * @deprecated Use `SelectionGroup` instead
 	 */
 	RemoveSelectionGroup(this: GuiService, selectionName: string): void;
 	Select(this: GuiService, selectionParent: Instance): void;
+	SendNotification(this: GuiService, notificationInfo: object): string;
 	/**
 	 * Opens or closes the player Emotes menu.
 	 */
@@ -15525,6 +16087,21 @@ interface GuiService extends Instance {
 	readonly MenuOpened: RBXScriptSignal<() => void>;
 }
 
+interface HapticEffect extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_HapticEffect: unique symbol;
+	Looped: boolean;
+	Type: Enum.HapticEffectType;
+	Play(this: HapticEffect): void;
+	Stop(this: HapticEffect): void;
+}
+
 /** The _Xbox One_ controller and some other USB gamepad controllers have motors built in to provide haptic feedback. Adding rumbles and vibrations can greatly enhance a game's experience and provide subtle feedback that is hard to convey through visuals or audio. */
 interface HapticService extends Instance {
 	/**
@@ -15558,6 +16135,17 @@ interface HapticService extends Instance {
 		motor: CastsToEnum<Enum.VibrationMotor>,
 		vibration: number,
 	): void;
+}
+
+interface HeatmapService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_HeatmapService: unique symbol;
 }
 
 interface HeightmapImporterService extends Instance {
@@ -15642,6 +16230,16 @@ interface HttpService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_HttpService: unique symbol;
+	/**
+	 * When set to true, you are able to send requests to other websites using [HttpService:GetAsync](https://developer.roblox.com/en-us/api-reference/function/HttpService/GetAsync), [HttpService:PostAsync](https://developer.roblox.com/en-us/api-reference/function/HttpService/PostAsync), and [HttpService:RequestAsync](https://developer.roblox.com/en-us/api-reference/function/HttpService/RequestAsync).
+	 * 
+	 * To enable HTTP requests, the HttpService must be enabled through Studio's Game Settings by opening the game's settings via the **Game Settings** button on the _Home_ tab of the game's studio window (see image below):  
+	 * ![Navigate to the Game Settings button](https://developer.roblox.com/assets/blt29ed4b4004d52e95/HttpRequestsSetting.png)
+	 * 
+	 * Within the Game Settings window, navigate to the **Security** tab and select the _On_ option under **Allow HTTP Requests** (see image below).  
+	 * ![Allow HTTP Requests](https://developer.roblox.com/assets/blt28c151e28c997373/GameSettingsButton.png)
+	 */
+	readonly HttpEnabled: boolean;
 	/**
 	 * The GenerateGUID function randomly creates a [universally unique identifier (UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) string.
 	 * 
@@ -16512,9 +17110,6 @@ interface Humanoid extends Instance {
 	 * GetLimb will throw an error if the [Part's](https://developer.roblox.com/en-us/api-reference/class/Part) parent is not set to the [Humanoid's](https://developer.roblox.com/en-us/api-reference/class/Humanoid) parent.
 	 */
 	GetLimb(this: Humanoid, part: BasePart): Enum.Limb;
-	/**
-	 * Tags: NotBrowsable
-	 */
 	GetMoveVelocity(this: Humanoid): Vector3;
 	/**
 	 * This function returns an array of all [AnimationTracks](https://developer.roblox.com/en-us/api-reference/class/AnimationTrack) that are currently being played on the [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid).
@@ -16730,6 +17325,7 @@ interface Humanoid extends Instance {
 	 * @deprecated
 	 */
 	readonly AnimationPlayed: RBXScriptSignal<(animationTrack: AnimationTrack) => void>;
+	readonly ApplyDescriptionFinished: RBXScriptSignal<(description: HumanoidDescription) => void>;
 	/**
 	 * Fires when the speed at which a [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) is climbing changes.
 	 * 
@@ -16984,6 +17580,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	BackAccessory: string;
 	/**
@@ -17053,6 +17651,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
 	 * *   [Face](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Face), a property that determines what Face texture is used on the head
+	 * 
+	 * Tags: NotReplicated
 	 */
 	FaceAccessory: string;
 	/**
@@ -17075,6 +17675,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	FrontAccessory: string;
 	/**
@@ -17100,6 +17702,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	HairAccessory: string;
 	/**
@@ -17112,6 +17716,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	HatAccessory: string;
 	/**
@@ -17124,6 +17730,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm), [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg) and [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which are similar properties that also control body part
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), which controls the color of this limb
 	 * *   [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory) and [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), which all can apply [Accessory](https://developer.roblox.com/en-us/api-reference/class/Accessory) objects which are joined to to the head
+	 * 
+	 * Tags: NotReplicated
 	 */
 	Head: number;
 	/**
@@ -17136,6 +17744,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), and [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which are similar properties that also control body colors
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), which controls the mesh used for the head
 	 * *   [Face](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Face), which applies a texture to the front of the head
+	 * 
+	 * Tags: NotReplicated
 	 */
 	HeadColor: Color3;
 	/**
@@ -17197,6 +17807,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg) and [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which are similar properties that also control body part
 	 * *   [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), which controls the color of this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	LeftArm: number;
 	/**
@@ -17209,6 +17821,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), and [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which are similar properties that also control body colors
 	 * *   [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm), which controls the mesh used for this limb
 	 * *   [Shirt](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Shirt), which can apply a texture to this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	LeftArmColor: Color3;
 	/**
@@ -17220,6 +17834,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm), and [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg), which are similar properties that also control body part
 	 * *   [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), which controls the color of this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	LeftLeg: number;
 	/**
@@ -17232,6 +17848,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), and [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which are similar properties that also control body colors
 	 * *   [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which controls the mesh used for this limb
 	 * *   [Pants](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Pants), which can apply a texture to this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	LeftLegColor: Color3;
 	MoodAnimation: number;
@@ -17245,6 +17863,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	NeckAccessory: string;
 	/**
@@ -17317,6 +17937,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm), [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg) and [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which are similar properties that also control body part
 	 * *   [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), which controls the color of this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	RightArm: number;
 	/**
@@ -17329,6 +17951,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), and [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which are similar properties that also control body colors
 	 * *   [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), which controls the mesh used for this limb
 	 * *   [Shirt](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Shirt), which can apply a texture to this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	RightArmColor: Color3;
 	/**
@@ -17340,6 +17964,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm) and [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which are similar properties that also control body part
 	 * *   [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which controls the color of this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	RightLeg: number;
 	/**
@@ -17352,6 +17978,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), and [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), which are similar properties that also control body colors
 	 * *   [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg), which controls the mesh used for this limb
 	 * *   [Pants](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Pants), which can apply a texture to this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	RightLegColor: Color3;
 	/**
@@ -17388,6 +18016,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory) and [WaistAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/WaistAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	ShouldersAccessory: string;
 	/**
@@ -17409,6 +18039,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [Head](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Head), [RightArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArm), [LeftArm](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArm), [RightLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLeg) and [LeftLeg](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLeg), which are similar properties that also control body part
 	 * *   [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), which controls the color of this limb
+	 * 
+	 * Tags: NotReplicated
 	 */
 	Torso: number;
 	/**
@@ -17421,6 +18053,8 @@ interface HumanoidDescription extends Instance {
 	 * *   [HeadColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HeadColor), [TorsoColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/TorsoColor), [LeftArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftArmColor), [RightArmColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightArmColor), [LeftLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/LeftLegColor), and [RightLegColor](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/RightLegColor), which are similar properties that also control body colors
 	 * *   [Torso](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Torso), which controls the mesh used for this body part
 	 * *   [GraphicTShirt](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/GraphicTShirt) and [Shirt](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/Shirt), which can apply a texture to this body part
+	 * 
+	 * Tags: NotReplicated
 	 */
 	TorsoColor: Color3;
 	/**
@@ -17433,6 +18067,8 @@ interface HumanoidDescription extends Instance {
 	 * 
 	 * *   [HumanoidDescription System](https://developer.roblox.com/en-us/articles/humanoiddescription-system), for more information on HumanoidDescriptions
 	 * *   [BackAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/BackAccessory), [FaceAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FaceAccessory), [FrontAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/FrontAccessory), [HairAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HairAccessory), [HatAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/HatAccessory), [NeckAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/NeckAccessory) and [ShouldersAccessory](https://developer.roblox.com/en-us/api-reference/property/HumanoidDescription/ShouldersAccessory), which are similar properties that apply accessories like this one
+	 * 
+	 * Tags: NotReplicated
 	 */
 	WaistAccessory: string;
 	/**
@@ -19358,6 +19994,10 @@ interface InsertService extends Instance {
 	Insert(this: InsertService, instance: Instance): void;
 	/**
 	 * Tags: Yields
+	 */
+	CreateMeshPartAsync(this: InsertService, meshId: ContentId, collisionFidelity: CastsToEnum<Enum.CollisionFidelity>, renderFidelity: CastsToEnum<Enum.RenderFidelity>): MeshPart;
+	/**
+	 * Tags: Yields
 	 * @deprecated Use `GetBaseSets` instead
 	 */
 	GetBaseCategories(this: InsertService): unknown;
@@ -19372,6 +20012,7 @@ interface InsertService extends Instance {
 	 * Returns the most recently uploaded models in the specified category.
 	 * 
 	 * Tags: Yields
+	 * @deprecated
 	 */
 	GetCollection(this: InsertService, categoryId: number): Array<CollectionInfo>;
 	/**
@@ -19497,6 +20138,7 @@ interface InsertService extends Instance {
 	 * The type of set that this set is.
 	 * 
 	 * Tags: Yields
+	 * @deprecated
 	 */
 	GetUserSets(this: InsertService, userId: number): Array<SetInfo>;
 	/**
@@ -20143,7 +20785,7 @@ interface KeyframeSequenceProvider extends Instance {
 	 * 
 	 * The asset ID generated by this function is temporary and cannot be used outside of Studio. Developers wishing to generate an asset ID that can be used online should upload the [KeyframeSequence](https://developer.roblox.com/en-us/api-reference/class/KeyframeSequence) to Roblox.
 	 */
-	RegisterActiveKeyframeSequence(this: KeyframeSequenceProvider, keyframeSequence: KeyframeSequence): string;
+	RegisterActiveKeyframeSequence(this: KeyframeSequenceProvider, keyframeSequence: KeyframeSequence): ContentId;
 	/**
 	 * Generates a temporary asset ID from a [KeyframeSequence](https://developer.roblox.com/en-us/api-reference/class/KeyframeSequence) that can be used for localized testing of an animation.
 	 * 
@@ -20153,7 +20795,7 @@ interface KeyframeSequenceProvider extends Instance {
 	 * 
 	 * The asset ID generated by this function is temporary and cannot be used outside of Studio. Developers wishing to generate an asset ID that can be used online should upload the [KeyframeSequence](https://developer.roblox.com/en-us/api-reference/class/KeyframeSequence) to Roblox.
 	 */
-	RegisterKeyframeSequence(this: KeyframeSequenceProvider, keyframeSequence: KeyframeSequence): string;
+	RegisterKeyframeSequence(this: KeyframeSequenceProvider, keyframeSequence: KeyframeSequence): ContentId;
 	/**
 	 * This function returns an [InventoryPages](https://developer.roblox.com/en-us/api-reference/class/InventoryPages) object which can be used to iterate over animations owned by a specific user.
 	 * 
@@ -20769,6 +21411,17 @@ interface Lighting extends Instance {
 	 * In cases where this behavior is not desired, the [Instance.Changed](https://developer.roblox.com/en-us/api-reference/event/Instance/Changed) event or [Instance:GetPropertyChangedSignal](https://developer.roblox.com/en-us/api-reference/function/Instance/GetPropertyChangedSignal) function can be used.
 	 */
 	readonly LightingChanged: RBXScriptSignal<(skyChanged: boolean) => void>;
+}
+
+interface LinkingService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_LinkingService: unique symbol;
 }
 
 interface LiveScriptingService extends Instance {
@@ -22150,18 +22803,6 @@ interface LuaSourceContainer extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_LuaSourceContainer: unique symbol;
-	/**
-	 * Tags: Hidden
-	 */
-	readonly LockGrantedOrNot: RBXScriptSignal<(granted: boolean) => void>;
-	/**
-	 * Tags: Hidden
-	 */
-	readonly LostLock: RBXScriptSignal<() => void>;
-	/**
-	 * Tags: Hidden
-	 */
-	readonly RequestLock: RBXScriptSignal<() => void>;
 }
 
 /** The base class for all script objects which run automatically. */
@@ -22205,7 +22846,7 @@ interface BaseScript extends LuaSourceContainer {
 	 * For the LinkedSource property for [ModuleScript](https://developer.roblox.com/en-us/api-reference/class/ModuleScript)s, please see [ModuleScript.LinkedSource](https://developer.roblox.com/en-us/api-reference/property/ModuleScript/LinkedSource).
 	 * @deprecated
 	 */
-	LinkedSource: string;
+	LinkedSource: ContentId;
 	RunContext: Enum.RunContext;
 }
 
@@ -22228,6 +22869,18 @@ interface Script extends BaseScript {
 	 * @deprecated
 	 */
 	readonly _nominal_Script: unique symbol;
+	/**
+	 * A script's Source is the code to be executed. Modifying the code within a script modifies the source code executes when the script runs.
+	 * 
+	 * For instance, given a script containing the line:
+	 * 
+	 * print("Hello world!")
+	 * 
+	 * The script's source is the “print(“Hello world”)” command because it is what will be executed when the script runs, leading to “Hello world” being printed in the command line.
+	 * 
+	 * This item is protected. Attempting to use it in a [Script](https://developer.roblox.com/en-us/api-reference/class/Script) or [LocalScript](https://developer.roblox.com/en-us/api-reference/class/LocalScript) will cause an error.
+	 */
+	Source: string;
 }
 
 /** A LocalScript is a Lua source container that runs Lua code on a client connected to a Roblox server. They are used to access client-only objects, such as the player's [Camera](https://developer.roblox.com/en-us/api-reference/class/Camera). For code run through LocalScripts, the LocalPlayer property of the [Players](https://developer.roblox.com/en-us/api-reference/class/Players) service will return the player whose client is running the script.
@@ -22274,7 +22927,11 @@ interface ModuleScript extends LuaSourceContainer {
 	 * Used to store a URL that points to an online script source. Binds the online code to the script's [Script.Source](https://developer.roblox.com/en-us/api-reference/property/Script/Source).
 	 * @deprecated
 	 */
-	LinkedSource: string;
+	LinkedSource: ContentId;
+	/**
+	 * The code to be executed.
+	 */
+	Source: string;
 }
 
 interface LuauScriptAnalyzerService extends Instance {
@@ -22332,10 +22989,12 @@ interface MarketplaceService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_MarketplaceService: unique symbol;
+	PromptBulkPurchase(this: MarketplaceService, player: Player, lineItems: Array<any>, options: object): void;
 	/**
 	 * Used to prompt a user to purchase a bundle with the given bundleId
 	 */
 	PromptBundlePurchase(this: MarketplaceService, player: Player, bundleId: number): void;
+	PromptCancelSubscription(this: MarketplaceService, user: Player, subscriptionId: string): void;
 	/**
 	 * Used to prompt a user to purchase a game pass with the given assetId.
 	 */
@@ -22611,19 +23270,31 @@ interface MarketplaceService extends Instance {
 	/**
 	 * Tags: Yields
 	 */
-	GetSubscriptionProductInfoAsync(this: MarketplaceService, subscriptionId: string): object;
+	GetSubscriptionProductInfoAsync(this: MarketplaceService, subscriptionId: string): SubscriptionInfo;
 	/**
 	 * Tags: Yields
 	 */
-	GetUserSubscriptionDetailsAsync(this: MarketplaceService, user: Player, subscriptionId: string): object;
+	GetUserSubscriptionDetailsAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): UserSubscriptionDetails;
 	/**
 	 * Tags: Yields
 	 */
-	GetUserSubscriptionPaymentHistoryAsync(this: MarketplaceService, user: Player, subscriptionId: string): unknown;
+	GetUserSubscriptionPaymentHistoryAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): Array<UserSubscriptionPaymentHistory>;
 	/**
 	 * Tags: Yields
 	 */
-	GetUserSubscriptionStatusAsync(this: MarketplaceService, user: Player, subscriptionId: string): object;
+	GetUserSubscriptionStatusAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): UserSubscriptionStatus;
 	/**
 	 * Returns whether the inventory of given [Player](https://developer.roblox.com/en-us/api-reference/class/Player) contains an asset, given the ID. This method can query for hats, models, sounds, etc. This function takes a small amount of time to send a request the Roblox website.
 	 * 
@@ -22657,6 +23328,7 @@ interface MarketplaceService extends Instance {
 	 * Tags: Yields
 	 */
 	UserOwnsGamePassAsync(this: MarketplaceService, userId: number, gamePassId: number): boolean;
+	readonly PromptBulkPurchaseFinished: RBXScriptSignal<(player: Player, status: Enum.MarketplaceBulkPurchasePromptStatus, results: object) => void>;
 	readonly PromptBundlePurchaseFinished: RBXScriptSignal<(player: Player, bundleId: number, wasPurchased: boolean) => void>;
 	/**
 	 * This event fires when a purchase dialogue of a game pass is closed. This fires right as the dialogue closes when the player presses “Cancel” at the prompt, or “OK” at the success/error message.
@@ -22901,7 +23573,7 @@ interface MemoryStoreSortedMap extends Instance {
 	 * 
 	 * Tags: Yields
 	 */
-	GetAsync(this: MemoryStoreSortedMap, key: string): unknown;
+	GetAsync(this: MemoryStoreSortedMap, key: string): LuaTuple<[key?: string, sortKey?: string | number]>;
 	/**
 	 * Gets items within a sorted range of keys.
 	 * 
@@ -22909,7 +23581,13 @@ interface MemoryStoreSortedMap extends Instance {
 	 * 
 	 * Tags: Yields
 	 */
-	GetRangeAsync(this: MemoryStoreSortedMap, direction: CastsToEnum<Enum.SortDirection>, count: number, exclusiveLowerBound: unknown, exclusiveUpperBound: unknown): unknown;
+	GetRangeAsync(
+		this: MemoryStoreSortedMap,
+		direction: CastsToEnum<Enum.SortDirection>,
+		count: number,
+		exclusiveLowerBound?: { key?: string; sortKey?: string | number },
+		exclusiveUpperBound?: { key?: string; sortKey?: string | number },
+	): Array<{ key: string; value: unknown; sortKey?: string | number }>;
 	/**
 	 * Removes the provided key from the sorted map.
 	 * 
@@ -23287,7 +23965,7 @@ interface Mouse extends Instance {
 	 * 
 	 * \* These appearances are approximations – the actual look is dependent on your operating system.
 	 */
-	Icon: string;
+	Icon: ContentId;
 	/**
 	 * The origin [Mouse](https://developer.roblox.com/en-us/api-reference/class/Mouse) property is a [CFrame](https://developer.roblox.com/en-us/api-reference/datatype/CFrame) indicating where the mouse originated from. It is positioned at the [Workspace.CurrentCamera](https://developer.roblox.com/en-us/api-reference/property/Workspace/CurrentCamera) and oriented toward the [Mouse](https://developer.roblox.com/en-us/api-reference/class/Mouse)'s 3D position.
 	 * 
@@ -25221,6 +25899,9 @@ interface Terrain extends BasePart {
 	 * Applies a chunk of terrain to the Terrain object. Note: [TerrainRegion](https://developer.roblox.com/en-us/api-reference/class/TerrainRegion) data does not replicate between server and client.
 	 */
 	PasteRegion(this: Terrain, region: TerrainRegion, corner: Vector3int16, pasteEmptyCells: boolean): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
 	ReadVoxelChannels(this: Terrain, region: Region3, resolution: number, channelIds: Array<any>): object;
 	/**
 	 * Returns a certain region of [smooth terrain](https://developer.roblox.com/articles/Intro-To-Terrain) in [table format](https://developer.roblox.com/articles/Scripting-With-Terrain#reading-and-writing-voxels). Both of the returned arrays have an additional `Size` property, a [Vector3](https://developer.roblox.com/en-us/api-reference/datatype/Vector3).
@@ -25278,7 +25959,10 @@ interface Terrain extends BasePart {
 	 * Returns the grid cell location that contains the point position, preferring non-empty grid cells when position is on a grid edge.
 	 */
 	WorldToCellPreferSolid(this: Terrain, position: Vector3): Vector3;
-	WriteVoxelChannels(this: Terrain, region: Region3, resolution: number, channels: object): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	WriteVoxelChannels(this: Terrain, region: Region3, resolution: number, channels: VoxelChannels): void;
 	/**
 	 * Sets a certain region of [smooth terrain](https://developer.roblox.com/articles/Intro-To-Terrain "Smooth terrain") using the [table format](https://developer.roblox.com/articles/Intro-To-Terrain#Reading_and_writing_voxels "Smooth terrain")
 	 * 
@@ -25390,7 +26074,7 @@ interface MeshPart extends TriangleMeshPart {
 	 * 
 	 * Note that this property currently cannot be changed by scripts as the collision model of the mesh cannot be recomputed during runtime. Developers should not rely on this behavior as it may change in the future. Those looking for a custom mesh object that can be updated during runtime should use [SpecialMesh](https://developer.roblox.com/en-us/api-reference/class/SpecialMesh).
 	 */
-	readonly MeshId: string;
+	readonly MeshId: ContentId;
 	/**
 	 * This property determines the level of detail that solid-modeled and mesh parts will be shown in and can be set to the possible values of the [RenderFidelity](https://developer.roblox.com/en-us/api-reference/enum/RenderFidelity) enum.
 	 * 
@@ -25439,7 +26123,7 @@ interface MeshPart extends TriangleMeshPart {
 	 * 
 	 * A mesh can only be textured if the mesh has been UV mapped. UV mapping refers to the practice of projecting a texture map onto a mesh. This cannot be done using Roblox Studio and has to be done using an external 3D modelling application such as [Blender](https://www.blender.org/).
 	 */
-	TextureID: string;
+	TextureID: ContentId;
 	ApplyMesh(this: MeshPart, meshPart: MeshPart): void;
 }
 
@@ -25866,7 +26550,7 @@ interface BackpackItem extends Model {
 	 * 
 	 * If this property is left blank, the [Backpack](https://developer.roblox.com/en-us/api-reference/class/Backpack) GUI will display the name of the tool instead.
 	 */
-	TextureId: string;
+	TextureId: ContentId;
 }
 
 /** Tools are objects that a [Humanoid](https://developer.roblox.com/en-us/api-reference/class/Humanoid) object can equip. For players, they are stored in a [Backpack](https://developer.roblox.com/en-us/api-reference/class/Backpack) object parented to a [Player](https://developer.roblox.com/en-us/api-reference/class/Player) object. In-game, players may have multiple tools which appear as icons at the bottom of the screen. Equipping a tool moves it from the Backpack and into a player's [character](https://developer.roblox.com/en-us/api-reference/class/Character) model in the [Workspace](https://developer.roblox.com/en-us/api-reference/class/Workspace). By default, tools are held in the right hand and have a handle in them, which is a [Part](https://developer.roblox.com/en-us/api-reference/class/BasePart) named “Handle” inside (though one is not required if [Tool.RequiresHandle](https://developer.roblox.com/en-us/api-reference/property/Tool/RequiresHandle) is off). Tools that are to be provided to (re)spawning players ought to be stored in the [StarterPack](https://developer.roblox.com/en-us/api-reference/class/StarterPack).
@@ -26410,7 +27094,7 @@ interface WorldRoot extends Model {
 		direction: Vector3,
 		raycastParams?: RaycastParams,
 	): RaycastResult | undefined;
-	Shapecast(this: WorldRoot, part: BasePart, direction: Vector3, params?: RaycastParams): RaycastResult;
+	Shapecast(this: WorldRoot, part: BasePart, direction: Vector3, params?: RaycastParams): RaycastResult | undefined;
 	Spherecast(
 		this: WorldRoot,
 		position: Vector3,
@@ -26552,6 +27236,14 @@ interface Workspace extends WorldRoot {
 	 * Determines the acceleration due to gravity applied to falling [BaseParts](https://developer.roblox.com/en-us/api-reference/class/BasePart). This value is measured in studs per second squared and by default is set to 196.2 studs/second2. By changing this value, developers can simulate the effects of lower or higher gravity in game.
 	 */
 	Gravity: number;
+	/**
+	 * Tags: NotReplicated
+	 */
+	InsertPoint: Vector3;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 * @deprecated
+	 */
 	InterpolationThrottling: Enum.InterpolationThrottlingMode;
 	Retargeting: Enum.AnimatorRetargetingMode;
 	/**
@@ -26752,7 +27444,7 @@ interface PackageLink extends Instance {
 	 * 
 	 * Tags: NotReplicated
 	 */
-	readonly PackageId: string;
+	readonly PackageId: ContentId;
 	/**
 	 * This property refers to a revision of a specific package
 	 * 
@@ -26833,6 +27525,17 @@ interface AudioPages extends Pages {
 	 * @deprecated
 	 */
 	readonly _nominal_AudioPages: unique symbol;
+}
+
+interface BanHistoryPages extends Pages {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_BanHistoryPages: unique symbol;
 }
 
 interface CatalogPages extends Pages<SearchCatalogResult> {
@@ -27128,6 +27831,10 @@ interface ParticleEmitter extends Instance {
 	 */
 	LightInfluence: number;
 	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
+	/**
 	 * The LockedToPart property determines if particles will “stick” to the emission source (the [Attachment](https://developer.roblox.com/en-us/api-reference/class/Attachment) or [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart) to which the [ParticleEmitter](https://developer.roblox.com/en-us/api-reference/class/ParticleEmitter) is parented).
 	 * 
 	 * Below is an animation of two [Parts](https://developer.roblox.com/en-us/api-reference/class/Part) being moved simultaneously in Studio. Inside each is a default [ParticleEmitter](https://developer.roblox.com/en-us/api-reference/class/ParticleEmitter); the background/left emitter has LockedToPart enabled so the column of particles moves as the part is moved. Contrast with the foreground/right emitter particles which stay in their world position.  
@@ -27228,7 +27935,7 @@ interface ParticleEmitter extends Instance {
 	 * Below is an opaque gray-scale Texture that works nicely for particles with [ParticleEmitter.LightEmission](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/LightEmission) set to 1.  
 	 * ![An example particle texture](https://developer.roblox.com/assets/bltf793b94e42b0b6bf/aura.png)
 	 */
-	Texture: string;
+	Texture: ContentId;
 	TimeScale: number;
 	/**
 	 * The Transparency property determines the transparency of all active particles over their individual lifetimes. It works similar to [ParticleEmitter.Size](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/Size) in how it affects particles over time. In terms of rendering, it works like the [BasePart.Transparency](https://developer.roblox.com/en-us/api-reference/property/BasePart/Transparency) of a part on a scale of 0 to 1, where 0 is completely visible (opaque), and a value of 1 is completely invisible (not rendered at all).
@@ -27554,14 +28261,14 @@ interface PathfindingService extends Instance {
 	 * Tags: Yields
 	 * @deprecated Use `FindPathAsync` instead
 	 */
-	ComputeRawPathAsync(this: PathfindingService, start: Vector3, finish: Vector3, maxDistance: number): Instance | undefined;
+	ComputeRawPathAsync(this: PathfindingService, start: Vector3, finish: Vector3, maxDistance: number): Path;
 	/**
 	 * This function computes and returns a smooth [Path](https://developer.roblox.com/en-us/api-reference/class/Path) between two [Vector3s](https://developer.roblox.com/en-us/api-reference/datatype/Vector3). This function fulfills the same purpose as [PathfindingService:ComputeRawPathAsync](https://developer.roblox.com/en-us/api-reference/function/PathfindingService/ComputeRawPathAsync), but creates a much smoother path for an NPC to follow in comparison.
 	 * 
 	 * Tags: Yields
 	 * @deprecated Use `FindPathAsync` instead
 	 */
-	ComputeSmoothPathAsync(this: PathfindingService, start: Vector3, finish: Vector3, maxDistance: number): Instance | undefined;
+	ComputeSmoothPathAsync(this: PathfindingService, start: Vector3, finish: Vector3, maxDistance: number): Path;
 	/**
 	 * This function is used to find a [Path](https://developer.roblox.com/en-us/api-reference/class/Path) between two provided points. This path uses the navigation grid created by [PathfindingService](https://developer.roblox.com/en-us/api-reference/class/PathfindingService) and makes sure that the path can be followed by a regular-sized Roblox character.
 	 * 
@@ -28207,6 +28914,8 @@ interface Player extends Instance {
 	 * You should not use this function for data that can be changed. For example, the amount of in-game currency the user currently has. This is because GetJoinData cannot guarantee a malicious user is not transmitting data from a previous session. For data like this, you should rely on [GlobalDataStores](https://developer.roblox.com/en-us/api-reference/class/GlobalDataStore).
 	 * 
 	 * As with all cases, you should implement proper server validation to ensure your game is secure. For more information see this article on [Game Security](https://developer.roblox.com/en-us/articles/game-security).
+	 * 
+	 * Tags: CustomLuaState
 	 */
 	GetJoinData(this: Player): PlayerJoinInfo;
 	/**
@@ -28606,6 +29315,17 @@ interface Player extends Instance {
 	readonly OnTeleport: RBXScriptSignal<(teleportState: Enum.TeleportState, placeId: number, spawnName: string) => void>;
 }
 
+interface PlayerHydrationService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_PlayerHydrationService: unique symbol;
+}
+
 /** [PlayerScripts](https://developer.roblox.com/en-us/api-reference/class/PlayerScripts) is a container object located inside [Player](https://developer.roblox.com/en-us/api-reference/class/Player) objects within the [Players](https://developer.roblox.com/en-us/api-reference/class/Players) game service. It is created automatically when a player joins the game. Its main purpose is to contain [LocalScript](https://developer.roblox.com/en-us/api-reference/class/LocalScript)s copied from the [StarterPlayerScripts](https://developer.roblox.com/en-us/api-reference/class/StarterPlayerScripts) container within the [StarterPlayer](https://developer.roblox.com/en-us/api-reference/class/StarterPlayer) game service, which happens once upon creation. Descendant `LocalScripts` of [PlayerScripts](https://developer.roblox.com/en-us/api-reference/class/PlayerScripts) will run code on the client of the [Player](https://developer.roblox.com/en-us/api-reference/class/Player).
  * 
  * Unlike the [Backpack](https://developer.roblox.com/en-us/api-reference/class/Backpack) and [PlayerGui](https://developer.roblox.com/en-us/api-reference/class/PlayerGui) containers, the [PlayerScripts](https://developer.roblox.com/en-us/api-reference/class/PlayerScripts) container is not accessible to the server. Server [Script](https://developer.roblox.com/en-us/api-reference/class/Script) objects will not run when parented to [PlayerScripts](https://developer.roblox.com/en-us/api-reference/class/PlayerScripts).
@@ -28853,6 +29573,10 @@ interface Players extends Instance {
 	/**
 	 * Tags: Yields
 	 */
+	BanAsync(this: Players, config: BanAsyncConfig): void;
+	/**
+	 * Tags: Yields
+	 */
 	CreateHumanoidModelFromDescription(
 		this: Players,
 		description: HumanoidDescription,
@@ -28863,6 +29587,10 @@ interface Players extends Instance {
 	 * Tags: Yields
 	 */
 	CreateHumanoidModelFromUserId(this: Players, userId: number): Model;
+	/**
+	 * Tags: Yields
+	 */
+	GetBanHistoryAsync(this: Players, userId: number): BanHistoryPages;
 	/**
 	 * This function returns a [Model](https://developer.roblox.com/en-us/api-reference/class/Model) containing the assets which the player is wearing, excluding gear.
 	 * 
@@ -29067,6 +29795,10 @@ interface Players extends Instance {
 		thumbnailType: CastsToEnum<Enum.ThumbnailType>,
 		thumbnailSize: CastsToEnum<Enum.ThumbnailSize>,
 	): LuaTuple<[string, boolean]>;
+	/**
+	 * Tags: Yields
+	 */
+	UnbanAsync(this: Players, config: UnbanAsyncConfig): void;
 	/**
 	 * The PlayerAdded event fires when a player enters the game. This is used to fire an event when a player joins a game, such as loading the player's saved [GlobalDataStore](https://developer.roblox.com/en-us/api-reference/class/GlobalDataStore) data.
 	 * 
@@ -29445,6 +30177,18 @@ interface ColorCorrectionEffect extends PostEffect {
 	TintColor: Color3;
 }
 
+interface ColorGradingEffect extends PostEffect {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ColorGradingEffect: unique symbol;
+	TonemapperPreset: Enum.TonemapperPreset;
+}
+
 /** The **DepthOfFieldEffect** simulates a camera lens by blurring parts of a scene not in focus. Distant objects can be blurred or this effect can be used to focus on specific parts of a scene, like an item in an in-game shop.
  * 
  * Like other post-processing effects, **DepthOfFieldEffect** will only work while [Enabled](https://developer.roblox.com/en-us/api-reference/property/PostEffect/Enabled) and when parented to [Lighting](https://developer.roblox.com/en-us/api-reference/class/Lighting) or [Workspace.CurrentCamera](https://developer.roblox.com/en-us/api-reference/property/Workspace/CurrentCamera). Also, it may render differently on low-end devices or depending on your Studio settings (see the **Quality Level** settings in **Rendering** → **Performance**).
@@ -29522,17 +30266,6 @@ interface ProcessInstancePhysicsService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_ProcessInstancePhysicsService: unique symbol;
-}
-
-interface ProjectFolderService extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_ProjectFolderService: unique symbol;
 }
 
 /** The ProximityPrompt is an object that allows developers to prompt users to interact with an object in the 3D world, such as opening a door or picking up an item.
@@ -29748,6 +30481,39 @@ interface PublishService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_PublishService: unique symbol;
+}
+
+interface RTAnimationTracker extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_RTAnimationTracker: unique symbol;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	Active: boolean;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	EnableFallbackAudioInput: boolean;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	SessionName: string;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	readonly TrackerMode: Enum.TrackerMode;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	TrackerType: Enum.TrackerType;
+	readonly TrackerError: RBXScriptSignal<(errorCode: Enum.TrackerError, msg: string) => void>;
+	readonly TrackerPrompt: RBXScriptSignal<(prompt: Enum.TrackerPromptEvent) => void>;
 }
 
 interface ReflectionService extends Instance {
@@ -30396,14 +31162,26 @@ interface ScreenshotHud extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_ScreenshotHud: unique symbol;
-	CameraButtonIcon: string;
+	CameraButtonIcon: ContentId;
 	CameraButtonPosition: UDim2;
 	CloseButtonPosition: UDim2;
 	CloseWhenScreenshotTaken: boolean;
+	/**
+	 * Tags: Hidden
+	 * @deprecated
+	 */
 	ExperienceNameOverlayEnabled: boolean;
 	HideCoreGuiForCaptures: boolean;
 	HidePlayerGuiForCaptures: boolean;
+	/**
+	 * Tags: Hidden
+	 * @deprecated
+	 */
 	OverlayFont: Enum.Font;
+	/**
+	 * Tags: Hidden
+	 * @deprecated
+	 */
 	UsernameOverlayEnabled: boolean;
 	Visible: boolean;
 }
@@ -30520,6 +31298,17 @@ interface ScriptEditorService extends Instance {
 	readonly _nominal_ScriptEditorService: unique symbol;
 }
 
+interface ScriptProfilerService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ScriptProfilerService: unique symbol;
+}
+
 interface ScriptRegistrationService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -30570,6 +31359,25 @@ interface SensorBase extends Instance {
 	readonly OnSensorOutputChanged: RBXScriptSignal<() => void>;
 }
 
+interface AtmosphereSensor extends SensorBase {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_AtmosphereSensor: unique symbol;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly AirDensity: number;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly RelativeWindVelocity: Vector3;
+}
+
 interface BuoyancySensor extends SensorBase {
 	/**
 	 * **DO NOT USE!**
@@ -30608,6 +31416,33 @@ interface ControllerPartSensor extends ControllerSensor {
 	SearchDistance: number;
 	SensedPart: BasePart | undefined;
 	SensorMode: Enum.SensorMode;
+}
+
+interface FluidForceSensor extends SensorBase {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_FluidForceSensor: unique symbol;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly CenterOfPressure: Vector3;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly Force: Vector3;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly Torque: Vector3;
+	/**
+	 * Tags: Yields
+	 */
+	EvaluateAsync(this: FluidForceSensor, linearVelocity: Vector3, angularVelocity: Vector3, cframe: CFrame): unknown;
 }
 
 /** **ServerScriptService** is a container service for [Script](https://developer.roblox.com/en-us/api-reference/class/Script), [ModuleScript](https://developer.roblox.com/en-us/api-reference/class/ModuleScript) and other scripting-related assets that are only meant for server use. The contents are never replicated to player clients at all, which allows for a secure storage of important game logic. Script objects will run if they are within this service and not [Disabled](https://developer.roblox.com/en-us/api-reference/property/BaseScript/Disabled).
@@ -30906,7 +31741,7 @@ interface DataModel extends ServiceProvider<Services> {
 	 * 
 	 * *   [PluginGui:BindToClose](https://developer.roblox.com/en-us/api-reference/function/PluginGui/BindToClose), which is used to bind a function to a [PluginGui](https://developer.roblox.com/en-us/api-reference/class/PluginGui) close button and should not be confused with this function
 	 */
-	BindToClose(this: DataModel, callback: () => void): void;
+	BindToClose(this: DataModel, callback: (reason: Enum.CloseReason) => void): void;
 	/**
 	 * This function will always return a blank string. It was originally used to set the message displayed on screen while the game was loading.
 	 * 
@@ -31115,31 +31950,31 @@ interface Sky extends Instance {
 	/**
 	 * The texture of the moon while using this skybox.
 	 */
-	MoonTextureId: string;
+	MoonTextureId: ContentId;
 	/**
 	 * The URL link to a picture for the back surface of the sky.
 	 */
-	SkyboxBk: string;
+	SkyboxBk: ContentId;
 	/**
 	 * The URL asset link to a picture for the Bottom surface of the sky.
 	 */
-	SkyboxDn: string;
+	SkyboxDn: ContentId;
 	/**
 	 * The URL link to a picture for the front surface of the skybox.
 	 */
-	SkyboxFt: string;
+	SkyboxFt: ContentId;
 	/**
 	 * The URL link to a picture for the left surface of the sky.
 	 */
-	SkyboxLf: string;
+	SkyboxLf: ContentId;
 	/**
 	 * The URL link to a picture for the right surface of the sky.
 	 */
-	SkyboxRt: string;
+	SkyboxRt: ContentId;
 	/**
 	 * The URL link to a picture for the top surface of the sky.
 	 */
-	SkyboxUp: string;
+	SkyboxUp: ContentId;
 	/**
 	 * How many stars are shown in the skybox. Note that too many stars may cause severe lag. Only works if [Sky.CelestialBodiesShown](https://developer.roblox.com/en-us/api-reference/property/Sky/CelestialBodiesShown) is true.
 	 */
@@ -31151,7 +31986,7 @@ interface Sky extends Instance {
 	/**
 	 * The texture of the sun while using this skybox.
 	 */
-	SunTextureId: string;
+	SunTextureId: ContentId;
 }
 
 /** Smoke is one of several particle-emitting classes. Like other particle emitters of its kind, Smoke objects emit particles when parented to a [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart) (such as a [Part](https://developer.roblox.com/en-us/api-reference/class/Part)) or an [Attachment](https://developer.roblox.com/en-us/api-reference/class/Attachment) within such a [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart). Compared to the [ParticleEmitter](https://developer.roblox.com/en-us/api-reference/class/ParticleEmitter) class, Smoke lacks many different customization properties and special methods, such as [ParticleEmitter.Lifetime](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/Lifetime) or [ParticleEmitter:Emit](https://developer.roblox.com/en-us/api-reference/function/ParticleEmitter/Emit). It is useful to create a quick special effect in a pinch; for more detailed work it is preferable to use a [ParticleEmitter](https://developer.roblox.com/en-us/api-reference/class/ParticleEmitter) instead.
@@ -31192,6 +32027,10 @@ interface Smoke extends Instance {
 	 * stopSmoke(part.Smoke)
 	 */
 	Enabled: boolean;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
 	/**
 	 * Opacity determines the opaqueness of the smoke particles. It must be in the range \[0, 1\]. This property works **inversely** in comparison to a part's [BasePart.Transparency](https://developer.roblox.com/en-us/api-reference/property/BasePart/Transparency) or ParticleEmitter's [ParticleEmitter.Transparency](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/Transparency): a value of 0 is completely invisible, 1 is completely visible. Below, the left [Smoke](https://developer.roblox.com/en-us/api-reference/class/Smoke) effect has an Opacity of 0.25 (or, 25%), the center has the default 0.5 (50%), and the right has 1.0 (or 100%).
 	 * 
@@ -31535,7 +32374,7 @@ interface Sound extends Instance {
 	 * "http://www.roblox.com/asset/?id=12222216" -- Content ID (will work)
 	 * "rbxassetid://12222216" -- Content ID (alternative version, will work)
 	 */
-	SoundId: string;
+	SoundId: ContentId;
 	/**
 	 * The length of the [Sound](https://developer.roblox.com/en-us/api-reference/class/Sound) in seconds. If the [Sound](https://developer.roblox.com/en-us/api-reference/class/Sound) is not loaded, this value will be 0.
 	 * 
@@ -32408,6 +33247,10 @@ interface Sparkles extends Instance {
 	 */
 	Enabled: boolean;
 	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
+	/**
 	 * **Note** This property functions identically to [Sparkles.Color](https://developer.roblox.com/en-us/api-reference/property/Sparkles/Color)
 	 * 
 	 * The SparkleColor property determines the color of all the particles emit by a [Sparkles](https://developer.roblox.com/en-us/api-reference/class/Sparkles) object (both existing and future particles). It behaves similarly to [ParticleEmitter.Color](https://developer.roblox.com/en-us/api-reference/property/ParticleEmitter/Color), except that it is only one color and not a [ColorSequence](https://developer.roblox.com/en-us/api-reference/datatype/ColorSequence). Sparkles have a natural color sequence applied which is most apparent when this property is set to white; sparkles very faintly animate between a subtle green and red.
@@ -32427,6 +33270,17 @@ interface StackFrame extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_StackFrame: unique symbol;
+}
+
+interface StartPageService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_StartPageService: unique symbol;
 }
 
 /** StarterGear is a container that is automatically inserted into each [Player](https://developer.roblox.com/en-us/api-reference/class/Player) when the player joins the game. When a player spawns, the contents of that player's StarterGear is copied into the player's [Backpack](https://developer.roblox.com/en-us/api-reference/class/Backpack). Additionally, when a player connects to a game that permits gear, all of the appropriate gear [Tool](https://developer.roblox.com/en-us/api-reference/class/Tool) objects that the player owns are inserted into that player's StarterGear.
@@ -32621,10 +33475,6 @@ interface StarterPlayer extends Instance {
 	 * Since this property is only relevant for characters being spawned in the future, changing it will not change any existing player characters. Changes to this property will only take effect when a player respawns.
 	 */
 	CharacterWalkSpeed: number;
-	/**
-	 * Tags: NotBrowsable
-	 */
-	DeathStyle: Enum.DeathStyle;
 	/**
 	 * The DevCameraOcclusionMode [StarterPlayer](https://developer.roblox.com/en-us/api-reference/class/StarterPlayer) property sets how the default camera handles objects between the camera and the player.
 	 * 
@@ -33012,6 +33862,17 @@ interface StudioSdkService extends Instance {
 	readonly _nominal_StudioSdkService: unique symbol;
 }
 
+interface StudioUserService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_StudioUserService: unique symbol;
+}
+
 interface StudioWidgetsService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -33047,6 +33908,7 @@ interface StyleRule extends StyleBase {
 	 * @deprecated
 	 */
 	readonly _nominal_StyleRule: unique symbol;
+	Priority: number;
 	Selector: string;
 	/**
 	 * Tags: NotReplicated
@@ -33138,6 +34000,7 @@ interface SurfaceAppearance extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_SurfaceAppearance: unique symbol;
+	Color: Color3;
 }
 
 /** The [Team](https://developer.roblox.com/en-us/api-reference/class/Team) class represents a faction in a Roblox place. The only valid parent for a Team is in the [Teams](https://developer.roblox.com/en-us/api-reference/class/Teams) service. Teams offer a range of features that are useful to developers that can be divided into two rough groups:
@@ -34345,6 +35208,35 @@ interface BubbleChatConfiguration extends TextChatConfigurations {
 	VerticalStudsOffset: number;
 }
 
+interface ChannelTabsConfiguration extends TextChatConfigurations {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ChannelTabsConfiguration: unique symbol;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly AbsolutePosition: Vector2;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly AbsoluteSize: Vector2;
+	BackgroundColor3: Color3;
+	BackgroundTransparency: number;
+	Enabled: boolean;
+	FontFace: Font;
+	HoverBackgroundColor3: Color3;
+	SelectedTabTextColor3: Color3;
+	TextColor3: Color3;
+	TextSize: number;
+	TextStrokeColor3: Color3;
+	TextStrokeTransparency: number;
+}
+
 interface ChatInputBarConfiguration extends TextChatConfigurations {
 	/**
 	 * **DO NOT USE!**
@@ -34410,6 +35302,7 @@ interface ChatWindowConfiguration extends TextChatConfigurations {
 	TextStrokeTransparency: number;
 	VerticalAlignment: Enum.VerticalAlignment;
 	WidthScale: number;
+	DeriveNewMessageProperties(this: ChatWindowConfiguration): ChatWindowMessageProperties;
 }
 
 interface TextChatMessage extends Instance {
@@ -34422,6 +35315,7 @@ interface TextChatMessage extends Instance {
 	 */
 	readonly _nominal_TextChatMessage: unique symbol;
 	BubbleChatMessageProperties: BubbleChatMessageProperties | undefined;
+	ChatWindowMessageProperties: ChatWindowMessageProperties | undefined;
 	MessageId: string;
 	Metadata: string;
 	PrefixText: string;
@@ -34445,6 +35339,40 @@ interface TextChatMessageProperties extends Instance {
 	PrefixText: string;
 	Text: string;
 	Translation: string;
+}
+
+interface BubbleChatMessageProperties extends TextChatMessageProperties {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_BubbleChatMessageProperties: unique symbol;
+	BackgroundColor3: Color3;
+	BackgroundTransparency: number;
+	FontFace: Font;
+	TailVisible: boolean;
+	TextColor3: Color3;
+	TextSize: number;
+}
+
+interface ChatWindowMessageProperties extends TextChatMessageProperties {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ChatWindowMessageProperties: unique symbol;
+	FontFace: Font;
+	PrefixTextProperties: ChatWindowMessageProperties | undefined;
+	TextColor3: Color3;
+	TextSize: number;
+	TextStrokeColor3: Color3;
+	TextStrokeTransparency: number;
 }
 
 interface TextChatService extends Instance {
@@ -34476,6 +35404,7 @@ interface TextChatService extends Instance {
 	readonly MessageReceived: RBXScriptSignal<(textChatMessage: TextChatMessage) => void>;
 	readonly SendingMessage: RBXScriptSignal<(textChatMessage: TextChatMessage) => void>;
 	OnBubbleAdded: (message: TextChatMessage, adornee: Instance) => TextChatMessageProperties | undefined;
+	OnChatWindowAdded: (message: TextChatMessage) => Array<any>;
 	OnIncomingMessage: (message: TextChatMessage) => TextChatMessageProperties | undefined;
 }
 
@@ -34609,7 +35538,7 @@ interface TextService extends Instance {
 	/**
 	 * Tags: Yields
 	 */
-	GetFamilyInfoAsync(this: TextService, assetId: string): object;
+	GetFamilyInfoAsync(this: TextService, assetId: ContentId): object;
 	/**
 	 * Tags: Yields
 	 */
@@ -34652,6 +35581,17 @@ interface TextureGenerationService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_TextureGenerationService: unique symbol;
+}
+
+interface TextureGenerationUnwrappingRequest extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_TextureGenerationUnwrappingRequest: unique symbol;
 }
 
 interface ThreadState extends Instance {
@@ -34863,6 +35803,10 @@ interface Trail extends Instance {
 	 */
 	LightInfluence: number;
 	/**
+	 * Tags: Hidden, NotReplicated
+	 */
+	LocalTransparencyModifier: number;
+	/**
 	 * The MinLength of a [Trail](https://developer.roblox.com/en-us/api-reference/class/Trail) determines the maximum length of each of the segments in the trail.
 	 * 
 	 * Note that changing MaxLength will only affect new segments that are drawn – any old segments that have already been drawn will maintain their current length.
@@ -34899,7 +35843,7 @@ interface Trail extends Instance {
 	 * 
 	 * Textures can be displayed in a variety of different ways based on the trail's [Trail.TextureMode](https://developer.roblox.com/en-us/api-reference/property/Trail/TextureMode) and [Trail.TextureLength](https://developer.roblox.com/en-us/api-reference/property/Trail/TextureLength) properties.
 	 */
-	Texture: string;
+	Texture: ContentId;
 	/**
 	 * This property determines how [Trail.Texture](https://developer.roblox.com/en-us/api-reference/property/Trail/Texture)s are drawn by [Trail](https://developer.roblox.com/en-us/api-reference/class/Trail). The behavior of TextureLength is determined by the [Trail.TextureMode](https://developer.roblox.com/en-us/api-reference/property/Trail/TextureMode) of its trail.
 	 * 
@@ -35247,6 +36191,7 @@ interface TweenService extends Instance {
 	 * The provided alpha value is clamped between 0 and 1.
 	 */
 	GetValue(this: TweenService, alpha: number, easingStyle: CastsToEnum<Enum.EasingStyle>, easingDirection: CastsToEnum<Enum.EasingDirection>): number;
+	SmoothDamp(this: TweenService, current: unknown, target: unknown, velocity: unknown, smoothTime: number, maxSpeed: number | undefined, dt: number | undefined): LuaTuple<[unknown, unknown]>;
 }
 
 interface UGCAvatarService extends Instance {
@@ -35462,6 +36407,51 @@ interface UICorner extends UIComponent {
 	 * It is suggested to always use either scale or offset to define CornerRadius instead of mixing them up.
 	 */
 	CornerRadius: UDim;
+}
+
+interface UIDragDetector extends UIComponent {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_UIDragDetector: unique symbol;
+	ActivatedCursorIcon: ContentId;
+	BoundingBehavior: Enum.UIDragDetectorBoundingBehavior;
+	BoundingUI: GuiBase2d | undefined;
+	CursorIcon: ContentId;
+	DragAxis: Vector2;
+	DragRelativity: Enum.UIDragDetectorDragRelativity;
+	DragRotation: number;
+	DragSpace: Enum.UIDragDetectorDragSpace;
+	DragStyle: Enum.UIDragDetectorDragStyle;
+	DragUDim2: UDim2;
+	Enabled: boolean;
+	MaxDragAngle: number;
+	MaxDragTranslation: UDim2;
+	MinDragAngle: number;
+	MinDragTranslation: UDim2;
+	ReferenceUIInstance: GuiObject | undefined;
+	ResponseStyle: Enum.UIDragDetectorResponseStyle;
+	SelectionModeDragSpeed: UDim2;
+	SelectionModeRotateSpeed: number;
+	UIDragSpeedAxisMapping: Enum.UIDragSpeedAxisMapping;
+	AddConstraintFunction(
+		this: UIDragDetector,
+		priority: number,
+		callback: (
+			proposedPosition: UDim2,
+			proposedRotation: number,
+		) => LuaTuple<[UDim2, number, Enum.UIDragDetectorDragRelativity?, Enum.UIDragDetectorDragSpace?]>,
+	): RBXScriptConnection;
+	GetReferencePosition(this: UIDragDetector): UDim2;
+	GetReferenceRotation(this: UIDragDetector): number;
+	SetDragStyleFunction(this: UIDragDetector, callback: (inputPosition: UDim2) => UDim2 | void): void;
+	readonly DragContinue: RBXScriptSignal<(inputPosition: Vector2) => void>;
+	readonly DragEnd: RBXScriptSignal<(inputPosition: Vector2) => void>;
+	readonly DragStart: RBXScriptSignal<(inputPosition: Vector2) => void>;
 }
 
 interface UIFlexItem extends UIComponent {
@@ -36074,6 +37064,17 @@ interface UIStroke extends UIComponent {
 	Transparency: number;
 }
 
+interface UIDragDetectorService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_UIDragDetectorService: unique symbol;
+}
+
 interface UnvalidatedAssetService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -36387,7 +37388,7 @@ interface UserInputService extends Instance {
 	 * Tags: NotReplicated
 	 */
 	readonly MouseEnabled: boolean;
-	MouseIcon: string;
+	MouseIcon: ContentId;
 	/**
 	 * This property determines whether the [Mouse's](https://developer.roblox.com/en-us/api-reference/class/Mouse) icon is visible When _true_ the mouse's icon is visible, when _false_ it is not.
 	 * 
@@ -36697,7 +37698,7 @@ interface UserInputService extends Instance {
 	 * *   [UserInputService.GamepadEnabled](https://developer.roblox.com/en-us/api-reference/property/UserInputService/GamepadEnabled)
 	 */
 	GetGamepadState(this: UserInputService, gamepadNum: CastsToEnum<Enum.UserInputType>): Array<InputObject>;
-	GetImageForKeyCode(this: UserInputService, keyCode: CastsToEnum<Enum.KeyCode>): string;
+	GetImageForKeyCode(this: UserInputService, keyCode: CastsToEnum<Enum.KeyCode>): ContentId;
 	/**
 	 * This function returns an array of [InputObjects](https://developer.roblox.com/en-us/api-reference/class/InputObject) associated with the keys currently being pressed down.
 	 * 
@@ -37679,76 +38680,6 @@ interface UserInputService extends Instance {
 	readonly WindowFocused: RBXScriptSignal<() => void>;
 }
 
-interface UserNotification extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_UserNotification: unique symbol;
-	/**
-	 * Tags: NotReplicated
-	 */
-	readonly Id: string;
-	Payload: UserNotificationPayload | undefined;
-}
-
-interface UserNotificationPayload extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_UserNotificationPayload: unique symbol;
-	AnalyticsData: UserNotificationPayloadAnalyticsData | undefined;
-	JoinExperience: UserNotificationPayloadJoinExperience | undefined;
-	MessageId: string;
-	Type: string;
-	GetParameters(this: UserNotificationPayload): unknown;
-	SetParameters(this: UserNotificationPayload, parameters: unknown): void;
-}
-
-interface UserNotificationPayloadAnalyticsData extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_UserNotificationPayloadAnalyticsData: unique symbol;
-	Category: string;
-}
-
-interface UserNotificationPayloadJoinExperience extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_UserNotificationPayloadJoinExperience: unique symbol;
-	LaunchData: string;
-}
-
-interface UserNotificationPayloadParameterValue extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_UserNotificationPayloadParameterValue: unique symbol;
-	Int64Value: number;
-	StringValue: string;
-}
-
 /** A service that handles queries regarding users on the Roblox platform. */
 interface UserService extends Instance {
 	/**
@@ -37794,10 +38725,8 @@ interface VRService extends Instance {
 	 */
 	readonly _nominal_VRService: unique symbol;
 	AutomaticScaling: Enum.VRScaling;
-	/**
-	 * Tags: NotBrowsable
-	 */
 	AvatarGestures: boolean;
+	ControllerModels: Enum.VRControllerModelMode;
 	FadeOutViewOnCollision: boolean;
 	/**
 	 * The GuiInputUserCFrame property describes what [UserCFrame](https://developer.roblox.com/en-us/api-reference/enum/UserCFrame) is responsible for input in VR. For instance, if a VR headset is responsible, the value of this property will be UserCFrame.Head.
@@ -37809,6 +38738,7 @@ interface VRService extends Instance {
 	 * Tags: NotReplicated
 	 */
 	GuiInputUserCFrame: Enum.UserCFrame;
+	LaserPointer: Enum.VRLaserPointerMode;
 	/**
 	 * Tags: NotReplicated
 	 */
@@ -38391,6 +39321,24 @@ interface VideoCaptureService extends Instance {
 	readonly _nominal_VideoCaptureService: unique symbol;
 }
 
+interface VideoDeviceInput extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_VideoDeviceInput: unique symbol;
+	Active: boolean;
+	CameraId: string;
+	CaptureQuality: Enum.VideoDeviceCaptureQuality;
+	/**
+	 * Tags: NotReplicated
+	 */
+	readonly IsReady: boolean;
+}
+
 interface VideoService extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -38411,6 +39359,39 @@ interface VisibilityCheckDispatcher extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_VisibilityCheckDispatcher: unique symbol;
+}
+
+interface VisualizationMode extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_VisualizationMode: unique symbol;
+}
+
+interface VisualizationModeCategory extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_VisualizationModeCategory: unique symbol;
+}
+
+interface VisualizationModeService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_VisualizationModeService: unique symbol;
 }
 
 interface VoiceChatInternal extends Instance {

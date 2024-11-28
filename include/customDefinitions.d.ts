@@ -74,6 +74,10 @@ interface AudioAnalyzer extends Instance {
 	GetSpectrum(this: AudioAnalyzer): Array<number>;
 }
 
+interface AudioEmitter extends Instance {
+	SetDistanceAttenuation(this: AudioEmitter, curve: DistanceAttenuationCurve): void;
+}
+
 interface AvatarEditorService extends Instance {
 	GetAvatarRules(this: AvatarEditorService): AvatarRules;
 	GetBatchItemDetails(
@@ -118,6 +122,24 @@ interface AvatarEditorService extends Instance {
 	): ReadonlyArray<RecommendedAsset>;
 	GetRecommendedBundles(this: AvatarEditorService, bundleId: number): ReadonlyArray<RecommendedBundle>;
 	SearchCatalog(this: AvatarEditorService, searchParameters: CatalogSearchParams): CatalogPages;
+}
+
+/** @client */
+interface CaptureService extends Instance {
+	readonly CaptureSaved: RBXScriptSignal<(captureInfo: Record<string, unknown>) => void>;
+	CaptureScreenshot(this: CaptureService, onCaptureReady: (captureContentId: string) => void): void;
+	PromptSaveCapturesToGallery<T extends string>(
+		this: CaptureService,
+		contentIds: Array<T>,
+		resultCallback: (results: Record<T, boolean>) => void,
+	): void;
+	PromptShareCapture(
+		this: CaptureService,
+		contentId: string,
+		launchData: string,
+		onAcceptedCallback: () => void,
+		onDeniedCallback: () => void,
+	): void;
 }
 
 interface CatalogPages extends Pages<SearchCatalogResult> {}
@@ -216,6 +238,7 @@ interface CollectionService extends Instance {
 	HasTag(this: Instance, tag: string): boolean;
 	RemoveTag(this: CollectionService, instance: Instance, tag: string): void;
 	RemoveTag(this: Instance, tag: string): void;
+	GetAllTags(this: CollectionService): Array<string>;
 }
 
 interface CompressorSoundEffect extends SoundEffect {
@@ -255,7 +278,7 @@ interface ContextActionService extends Instance {
 
 interface DataModel extends ServiceProvider<Services> {
 	readonly Workspace: Workspace;
-	BindToClose(this: DataModel, callback: () => void): void;
+	BindToClose(this: DataModel, callback: (reason: Enum.CloseReason) => void): void;
 }
 
 interface DataStore extends GlobalDataStore {
@@ -305,6 +328,10 @@ interface DataStoreService extends Instance {
 
 interface DataStoreVersionPages extends Pages<DataStoreObjectVersionInfo> {}
 
+interface DataStoreKeyInfo extends Instance {
+	GetUserIds(this: DataStoreKeyInfo): Array<number>;
+}
+
 interface Dialog extends Instance {
 	readonly DialogChoiceSelected: RBXScriptSignal<(player: Player, dialogChoice: Dialog) => void>;
 	GetCurrentPlayers(this: Dialog): Array<Player>;
@@ -314,7 +341,28 @@ interface Dragger extends Instance {
 	MouseDown(this: Dragger, mousePart: BasePart, pointOnMousePart: Vector3, parts: Array<BasePart>): void;
 }
 
+interface EditableImage extends Instance {
+	ReadPixels(this: EditableImage, position: Vector2, size: Vector2): Array<number>;
+}
+
+interface EditableMesh extends DataModelMesh {
+	FindClosestPointOnSurface(this: EditableMesh, point: Vector3): LuaTuple<[number, Vector3, Vector3]>;
+	FindVerticesWithinSphere(this: EditableMesh, center: Vector3, radius: number): Array<number>;
+	GetAdjacentTriangles(this: EditableMesh, triangleId: number): Array<number>;
+	GetAdjacentVertices(this: EditableMesh, vertexId: number): Array<number>;
+	GetTriangleVertices(this: EditableMesh, triangleId: number): LuaTuple<[number, number, number]>;
+	GetTriangles(this: EditableMesh): Array<number>;
+	GetVertices(this: EditableMesh): Array<number>;
+	RaycastLocal(this: EditableMesh, origin: Vector3, direction: Vector3): LuaTuple<[number, Vector3, Vector3]>;
+}
+
 interface EmotesPages extends InventoryPages {}
+
+interface FloatCurve extends Instance {
+	GetKeyIndicesAtTime(this: FloatCurve, time: number): [before: number, after: number];
+	GetKeys(this: FloatCurve): Array<FloatCurveKey>;
+	InsertKey(this: FloatCurve, key: FloatCurveKey): [isNew: boolean, index: number];
+}
 
 interface FriendPages
 	extends Pages<{ AvatarFinal: boolean; AvatarUri: string; Id: number; Username: string; IsOnline: boolean }> {}
@@ -329,6 +377,33 @@ interface GamePassService extends Instance {
 }
 
 interface GenericSettings<S = unknown> extends ServiceProvider<S> {}
+
+interface GeometryService extends Instance {
+	CalculateConstraintsToPreserve(
+		this: GeometryService,
+		source: Instance,
+		destination: ReadonlyArray<Instance>,
+		options?: CalculateConstraintsToPreserveConfig,
+	): Array<unknown>;
+	IntersectAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
+	SubtractAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
+	UnionAsync(
+		this: GeometryService,
+		part: Part | PartOperation,
+		parts: ReadonlyArray<Part | PartOperation>,
+		options?: GeometryServiceAsyncMethodConfig,
+	): Array<PartOperation>;
+}
 
 /** @server */
 interface GlobalDataStore extends Instance {
@@ -490,6 +565,7 @@ interface Instance {
 	GetActor(this: Instance): Actor | undefined;
 	GetChildren(this: Instance): Array<Instance>;
 	GetDescendants(this: Instance): Array<Instance>;
+	GetTags(this: Instance): Array<string>;
 	FindFirstChild(this: Instance, childName: string | number, recursive?: boolean): Instance | undefined;
 	WaitForChild(this: Instance, childName: string | number): Instance;
 	WaitForChild(this: Instance, childName: string | number, timeOut: number): Instance | undefined;
@@ -602,6 +678,22 @@ interface MarketplaceService extends Instance {
 		IconImageAssetId: number;
 		Name: string;
 	}>;
+	GetSubscriptionProductInfoAsync(this: MarketplaceService, subscriptionId: string): SubscriptionInfo;
+	GetUserSubscriptionDetailsAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): UserSubscriptionDetails;
+	GetUserSubscriptionPaymentHistoryAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): Array<UserSubscriptionPaymentHistory>;
+	GetUserSubscriptionStatusAsync(
+		this: MarketplaceService,
+		user: Player,
+		subscriptionId: string,
+	): UserSubscriptionStatus;
 }
 
 /** @server */
@@ -629,6 +721,14 @@ interface MemoryStoreSortedMap extends Instance {
 		expiration: number,
 		sortKey?: string | number,
 	): boolean;
+	GetRangeAsync(
+		this: MemoryStoreSortedMap,
+		direction: CastsToEnum<Enum.SortDirection>,
+		count: number,
+		exclusiveLowerBound?: { key?: string; sortKey?: string | number },
+		exclusiveUpperBound?: { key?: string; sortKey?: string | number },
+	): Array<{ key: string; value: unknown; sortKey?: string | number }>;
+	GetAsync(this: MemoryStoreSortedMap, key: string): LuaTuple<[key?: string, sortKey?: string | number]>;
 }
 
 /** @server */
@@ -737,6 +837,8 @@ interface Players extends Instance {
 		thumbnailType: CastsToEnum<Enum.ThumbnailType>,
 		thumbnailSize: CastsToEnum<Enum.ThumbnailSize>,
 	): LuaTuple<[string, boolean]>;
+	BanAsync(this: Players, config: BanAsyncConfig): void;
+	UnbanAsync(this: Players, config: UnbanAsyncConfig): void;
 }
 
 interface Plugin extends Instance {
@@ -1014,6 +1116,7 @@ interface Terrain extends BasePart {
 		materials: Array<Array<Array<CastsToEnum<Enum.Material>>>>,
 		occupancy: Array<Array<Array<number>>>,
 	): void;
+	WriteVoxelChannels(this: Terrain, region: Region3, resolution: number, channels: VoxelChannels): void;
 }
 
 interface TextBox extends GuiObject {
@@ -1061,6 +1164,18 @@ interface UIPageLayout extends UIGridStyleLayout {
 	readonly PageLeave: RBXScriptSignal<(page: GuiObject) => void>;
 	readonly Stopped: RBXScriptSignal<(page: GuiObject) => void>;
 	JumpTo(this: UIPageLayout, page: GuiObject): void;
+}
+
+interface UIDragDetector extends UIComponent {
+	AddConstraintFunction(
+		this: UIDragDetector,
+		priority: number,
+		callback: (
+			proposedPosition: UDim2,
+			proposedRotation: number,
+		) => LuaTuple<[UDim2, number, Enum.UIDragDetectorDragRelativity?, Enum.UIDragDetectorDragSpace?]>,
+	): RBXScriptConnection;
+	SetDragStyleFunction(this: UIDragDetector, callback: (inputPosition: UDim2) => UDim2 | void): void;
 }
 
 /** @client */

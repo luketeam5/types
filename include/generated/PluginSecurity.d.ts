@@ -29,14 +29,7 @@ interface CreatableInstances {
 	RenderingTest: RenderingTest;
 }
 
-interface AbstractInstances {
-	NetworkPeer: NetworkPeer;
-	NetworkReplicator: NetworkReplicator;
-	PluginGui: PluginGui;
-	StatsItem: StatsItem;
-}
-
-interface Instances extends Services, CreatableInstances, AbstractInstances {
+interface Instances extends Services, CreatableInstances {
 	ClientReplicator: ClientReplicator;
 	DataModelSession: DataModelSession;
 	DebuggerBreakpoint: DebuggerBreakpoint;
@@ -49,9 +42,12 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	LuaSettings: LuaSettings;
 	MemStorageConnection: MemStorageConnection;
 	MultipleDocumentInterfaceInstance: MultipleDocumentInterfaceInstance;
+	NetworkPeer: NetworkPeer;
+	NetworkReplicator: NetworkReplicator;
 	PhysicsSettings: PhysicsSettings;
 	Plugin: Plugin;
 	PluginDragEvent: PluginDragEvent;
+	PluginGui: PluginGui;
 	PluginMenu: PluginMenu;
 	PluginMouse: PluginMouse;
 	PluginToolbar: PluginToolbar;
@@ -62,6 +58,7 @@ interface Instances extends Services, CreatableInstances, AbstractInstances {
 	RunningAverageTimeIntervalItem: RunningAverageTimeIntervalItem;
 	ScriptDebugger: ScriptDebugger;
 	ServerReplicator: ServerReplicator;
+	StatsItem: StatsItem;
 	StudioTheme: StudioTheme;
 	TotalCountTimeIntervalItem: TotalCountTimeIntervalItem;
 }
@@ -127,7 +124,7 @@ interface AnimationClipProvider extends Instance {
 	/**
 	 * @deprecated Use `GetAnimationClipAsync` instead
 	 */
-	GetAnimationClip(this: AnimationClipProvider, assetId: string): AnimationClip;
+	GetAnimationClip(this: AnimationClipProvider, assetId: ContentId): AnimationClip;
 	/**
 	 * @deprecated Use `GetAnimationClipAsync` instead
 	 */
@@ -157,7 +154,7 @@ interface Animator extends Instance {
 	StepAnimations(this: Animator, deltaTime: number): void;
 }
 
-interface AudioAnalyzer extends Instance {
+interface AssetService extends Instance {
 	/**
 	 * **DO NOT USE!**
 	 *
@@ -165,176 +162,11 @@ interface AudioAnalyzer extends Instance {
 	 * @hidden
 	 * @deprecated
 	 */
-	readonly _nominal_AudioAnalyzer: unique symbol;
-	GetConnectedWires(this: AudioAnalyzer, pin: string): unknown;
-}
-
-interface AudioChorus extends Instance {
+	readonly _nominal_AssetService: unique symbol;
 	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
+	 * Tags: Yields
 	 */
-	readonly _nominal_AudioChorus: unique symbol;
-	GetConnectedWires(this: AudioChorus, pin: string): unknown;
-}
-
-interface AudioCompressor extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioCompressor: unique symbol;
-	GetConnectedWires(this: AudioCompressor, pin: string): unknown;
-}
-
-interface AudioDeviceInput extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioDeviceInput: unique symbol;
-	GetConnectedWires(this: AudioDeviceInput, pin: string): unknown;
-}
-
-interface AudioDeviceOutput extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioDeviceOutput: unique symbol;
-	GetConnectedWires(this: AudioDeviceOutput, pin: string): unknown;
-}
-
-interface AudioDistortion extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioDistortion: unique symbol;
-	GetConnectedWires(this: AudioDistortion, pin: string): unknown;
-}
-
-interface AudioEcho extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioEcho: unique symbol;
-	GetConnectedWires(this: AudioEcho, pin: string): unknown;
-}
-
-interface AudioEmitter extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioEmitter: unique symbol;
-	GetConnectedWires(this: AudioEmitter, pin: string): unknown;
-}
-
-interface AudioEqualizer extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioEqualizer: unique symbol;
-	GetConnectedWires(this: AudioEqualizer, pin: string): unknown;
-}
-
-interface AudioFader extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioFader: unique symbol;
-	GetConnectedWires(this: AudioFader, pin: string): unknown;
-}
-
-interface AudioFlanger extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioFlanger: unique symbol;
-	GetConnectedWires(this: AudioFlanger, pin: string): unknown;
-}
-
-interface AudioListener extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioListener: unique symbol;
-	GetConnectedWires(this: AudioListener, pin: string): unknown;
-}
-
-interface AudioPitchShifter extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioPitchShifter: unique symbol;
-	GetConnectedWires(this: AudioPitchShifter, pin: string): unknown;
-}
-
-interface AudioPlayer extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioPlayer: unique symbol;
-	GetConnectedWires(this: AudioPlayer, pin: string): unknown;
-}
-
-interface AudioReverb extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_AudioReverb: unique symbol;
-	GetConnectedWires(this: AudioReverb, pin: string): unknown;
+	CreateMeshPartAsync(this: AssetService, meshId: ContentId, options?: object): MeshPart;
 }
 
 /** The CoreGui is a service used to store Guis created in-game by Roblox for the core user interface found in every game (such as the game menu, the playerlist, the backpack, etc.). It can also be used by [Plugins](https://developer.roblox.com/en-us/api-reference/class/Plugin) in Roblox Studio.
@@ -393,7 +225,7 @@ interface BaseWrap extends Instance {
 	 * 
 	 * Asset ID for cage mesh.
 	 */
-	CageMeshId: string;
+	CageMeshId: ContentId;
 	/**
 	 * This property is set up automatically by the Avatar Importer plugin.
 	 * 
@@ -462,7 +294,7 @@ interface WrapLayer extends BaseWrap {
 	 * 
 	 * Note: this property is set up automatically by the FBX importer
 	 */
-	ReferenceMeshId: string;
+	ReferenceMeshId: ContentId;
 	/**
 	 * Reference mesh offset relative to parent MeshPart (in the parent MeshPart space)
 	 * 
@@ -1069,7 +901,7 @@ interface File extends Instance {
 	 * 
 	 * Throws an error if the file does not exist on disk.
 	 */
-	GetTemporaryId(this: File): string;
+	GetTemporaryId(this: File): ContentId;
 }
 
 /** Various miscellaneous options for in-game. Can be accessed from Roblox Studio's settings menu under the _Game_ tab. */
@@ -1290,21 +1122,6 @@ interface Humanoid extends Instance {
 	CollisionType: Enum.HumanoidCollisionType;
 }
 
-interface InsertService extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_InsertService: unique symbol;
-	/**
-	 * Tags: Yields
-	 */
-	CreateMeshPartAsync(this: InsertService, meshId: string, collisionFidelity: CastsToEnum<Enum.CollisionFidelity>, renderFidelity: CastsToEnum<Enum.RenderFidelity>): MeshPart;
-}
-
 interface KeyframeSequenceProvider extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -1318,7 +1135,7 @@ interface KeyframeSequenceProvider extends Instance {
 	 * Returns a [KeyframeSequence](https://developer.roblox.com/en-us/api-reference/class/KeyframeSequence) from a given asset URL.
 	 * @deprecated Use `GetKeyframeSequenceAsync` instead
 	 */
-	GetKeyframeSequence(this: KeyframeSequenceProvider, assetId: string): Instance | undefined;
+	GetKeyframeSequence(this: KeyframeSequenceProvider, assetId: ContentId): Instance | undefined;
 	/**
 	 * Returns a [KeyframeSequence](https://developer.roblox.com/en-us/api-reference/class/KeyframeSequence) from the supplied assetId. Can optionally cache to reduce unnecessary loading freezes.
 	 * @deprecated Use `GetKeyframeSequenceAsync` instead
@@ -1340,21 +1157,6 @@ interface LuaSettings extends Instance {
 	readonly _nominal_LuaSettings: unique symbol;
 }
 
-interface LuaSourceContainer extends Instance {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_LuaSourceContainer: unique symbol;
-	/**
-	 * Tags: NotReplicated
-	 */
-	RuntimeSource: string;
-}
-
 interface BaseScript extends LuaSourceContainer {
 	/**
 	 * **DO NOT USE!**
@@ -1367,44 +1169,6 @@ interface BaseScript extends LuaSourceContainer {
 	RunContext: Enum.RunContext;
 }
 
-interface Script extends BaseScript {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_Script: unique symbol;
-	/**
-	 * A script's Source is the code to be executed. Modifying the code within a script modifies the source code executes when the script runs.
-	 * 
-	 * For instance, given a script containing the line:
-	 * 
-	 * print("Hello world!")
-	 * 
-	 * The script's source is the “print(“Hello world”)” command because it is what will be executed when the script runs, leading to “Hello world” being printed in the command line.
-	 * 
-	 * This item is protected. Attempting to use it in a [Script](https://developer.roblox.com/en-us/api-reference/class/Script) or [LocalScript](https://developer.roblox.com/en-us/api-reference/class/LocalScript) will cause an error.
-	 */
-	Source: string;
-}
-
-interface ModuleScript extends LuaSourceContainer {
-	/**
-	 * **DO NOT USE!**
-	 *
-	 * This field exists to force TypeScript to recognize this as a nominal type
-	 * @hidden
-	 * @deprecated
-	 */
-	readonly _nominal_ModuleScript: unique symbol;
-	/**
-	 * The code to be executed.
-	 */
-	Source: string;
-}
-
 interface MaterialVariant extends Instance {
 	/**
 	 * **DO NOT USE!**
@@ -1415,10 +1179,10 @@ interface MaterialVariant extends Instance {
 	 */
 	readonly _nominal_MaterialVariant: unique symbol;
 	BaseMaterial: Enum.Material;
-	ColorMap: string;
-	MetalnessMap: string;
-	NormalMap: string;
-	RoughnessMap: string;
+	ColorMap: ContentId;
+	MetalnessMap: ContentId;
+	NormalMap: ContentId;
+	RoughnessMap: ContentId;
 }
 
 interface MemStorageConnection extends Instance {
@@ -1805,6 +1569,7 @@ interface WorldRoot extends Model {
 	 * *   If translate stiffness and rotate stiffness are both equal to 0, then the target CFrame will be ignored and physical constraints will be solved for the object at the position where it was.
 	 */
 	IKMoveTo(this: WorldRoot, part: BasePart, target: CFrame, translateStiffness?: number, rotateStiffness?: number, collisionsMode?: CastsToEnum<Enum.IKCollisionsMode>): void;
+	StepPhysics(this: WorldRoot, dt: number, parts?: Array<Instance>): void;
 }
 
 interface Workspace extends WorldRoot {
@@ -1837,6 +1602,9 @@ interface Workspace extends WorldRoot {
 	 * *   This property is clamped between -50,000 and 50,000. This is because [BasePart](https://developer.roblox.com/en-us/api-reference/class/BasePart)s do not simulate or render properly at a great distance from the origin due to floating point inaccuracies
 	 */
 	FallenPartsDestroyHeight: number;
+	/**
+	 * Tags: Hidden, NotReplicated
+	 */
 	InterpolationThrottling: Enum.InterpolationThrottlingMode;
 	/**
 	 * The **StreamingEnabled** property determines whether game content streaming is enabled for the place. This property is not scriptable and therefore must be set on the **Workspace** object in Studio.
@@ -2925,7 +2693,7 @@ interface PluginToolbarButton extends Instance {
 	/**
 	 * Tags: NotReplicated
 	 */
-	Icon: string;
+	Icon: ContentId;
 	SetActive(this: PluginToolbarButton, active: boolean): void;
 	/**
 	 * **Click** fires when the PluginToolbarButton is pressed and released by the user.
@@ -3046,7 +2814,9 @@ interface RenderingTest extends Instance {
 	 * Tags: Hidden, NotReplicated
 	 */
 	Position: Vector3;
+	QualityAuto: boolean;
 	QualityLevel: number;
+	RenderingTestFrameCount: number;
 	ShouldSkip: boolean;
 	Ticket: string;
 	Timeout: number;
@@ -3073,6 +2843,10 @@ interface RunService extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_RunService: unique symbol;
+	/**
+	 * Tags: NotReplicated
+	 */
+	RunState: Enum.RunState;
 	/**
 	 * This function returns whether the current environment is in 'Edit' mode. For example, Roblox Studio is in 'Edit Mode' when the game is not running.
 	 * 
@@ -3335,6 +3109,28 @@ interface ScriptEditorService extends Instance {
 	readonly TextDocumentDidOpen: RBXScriptSignal<(newDocument: ScriptDocument) => void>;
 }
 
+interface ScriptProfilerService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_ScriptProfilerService: unique symbol;
+	ClientRequestData(this: ScriptProfilerService, player: Player): void;
+	ClientStart(this: ScriptProfilerService, player: Player, frequency: number | undefined): void;
+	ClientStop(this: ScriptProfilerService, player: Player): void;
+	/**
+	 * Tags: CustomLuaState
+	 */
+	DeserializeJSON(this: ScriptProfilerService, jsonString: string | undefined): object;
+	ServerRequestData(this: ScriptProfilerService): void;
+	ServerStart(this: ScriptProfilerService, frequency: number | undefined): void;
+	ServerStop(this: ScriptProfilerService): void;
+	readonly OnNewData: RBXScriptSignal<(player: Player, jsonString: string) => void>;
+}
+
 /** The Selection service controls the [Instance](https://developer.roblox.com/en-us/api-reference/class/Instance)s that are selected in Roblox Studio.
  * 
  * This service is particularly useful when developing [Plugin](https://developer.roblox.com/en-us/api-reference/class/Plugin)s, as it allows the developer to access and manipulate the current selection.
@@ -3462,7 +3258,7 @@ interface DataModel extends ServiceProvider<Services> {
 	 * 
 	 * Due to this function's security context it can only be used by plugins or the command bar. For an alternative that can be used in [Scripts](https://developer.roblox.com/en-us/api-reference/class/Script) and [LocalScripts](https://developer.roblox.com/en-us/api-reference/class/LocalScript), see [InsertService:LoadAsset](https://developer.roblox.com/en-us/api-reference/function/InsertService/LoadAsset).
 	 */
-	GetObjects(this: DataModel, url: string): Array<Instance>;
+	GetObjects(this: DataModel, url: ContentId): Array<Instance>;
 	/**
 	 * This function sets the [DataModel.PlaceId](https://developer.roblox.com/en-us/api-reference/property/DataModel/PlaceId) of the game instance to the given _placeId_.
 	 * 
@@ -3516,6 +3312,19 @@ interface GlobalSettings extends GenericSettings {
 	 * Returns the value of an FVariable, if it exists.
 	 */
 	GetFVariable(this: GlobalSettings, name: string): string;
+}
+
+interface SoundService extends Instance {
+	/**
+	 * **DO NOT USE!**
+	 *
+	 * This field exists to force TypeScript to recognize this as a nominal type
+	 * @hidden
+	 * @deprecated
+	 */
+	readonly _nominal_SoundService: unique symbol;
+	DefaultListenerLocation: Enum.ListenerLocation;
+	OpenAttenuationCurveEditor(this: SoundService, selectedCurveObjects: Array<Instance>): void;
 }
 
 /** A StatsItem is an internal measurement item that is created by the engine to benchmark many of the backend components of Roblox.  
@@ -3628,6 +3437,7 @@ interface Studio extends Instance {
 	 * Tags: NotReplicated
 	 */
 	["\"self\" Color"]: Color3;
+	ActionOnStopSync: Enum.ActionOnStopSync;
 	["Active Color"]: Color3;
 	["Active Hover Over Color"]: Color3;
 	["Always Save Script Changes"]: boolean;
@@ -3639,7 +3449,6 @@ interface Studio extends Instance {
 	["Auto Indent Rule"]: Enum.AutoIndentRule;
 	["Auto-Recovery Enabled"]: boolean;
 	["Auto-Recovery Interval (Minutes)"]: number;
-	["Auto-Recovery Path"]: QDir;
 	/**
 	 * Tags: NotReplicated
 	 */
@@ -3829,7 +3638,6 @@ interface Studio extends Instance {
 	 * Tags: NotReplicated
 	 */
 	["Selection Color"]: Color3;
-	["Server Audio Behavior"]: Enum.ServerAudioBehavior;
 	["Set Pivot of Imported Parts"]: boolean;
 	["Show Core GUI in Explorer while Playing"]: boolean;
 	["Show Diagnostics Bar"]: boolean;
@@ -4050,7 +3858,7 @@ interface StudioService extends Instance {
 	 * Returns the studio user's userId if they're logged in, otherwise returns 0.
 	 */
 	GetUserId(this: StudioService): number;
-	GizmoRaycast(this: StudioService, origin: Vector3, direction: Vector3, raycastParams?: RaycastParams): RaycastResult;
+	GizmoRaycast(this: StudioService, origin: Vector3, direction: Vector3, raycastParams?: RaycastParams): RaycastResult | undefined;
 	/**
 	 * This function prompts the current Studio user to select one file, which will then be loaded as a [File](https://developer.roblox.com/en-us/api-reference/class/File).
 	 * 
@@ -4122,7 +3930,7 @@ interface SurfaceAppearance extends Instance {
 	/**
 	 * This property determines the color and opacity of the surface. This texture is sometimes called the albedo texture. The alpha channel of this texture controls its opacity, which behaves differently based on the [SurfaceAppearance.AlphaMode](https://developer.roblox.com/en-us/api-reference/property/SurfaceAppearance/AlphaMode) setting.
 	 */
-	ColorMap: string;
+	ColorMap: ContentId;
 	/**
 	 * This property determines which parts of the surface are metal and are non-metal. A metalness map is a grayscale image where black pixels correspond to non-metals and white pixels correspond to metals.
 	 * 
@@ -4139,7 +3947,7 @@ interface SurfaceAppearance extends Instance {
 	 * 
 	 * *   When [Lighting.EnvironmentSpecularScale](https://developer.roblox.com/en-us/api-reference/property/Lighting/EnvironmentSpecularScale) is 0, metalness has no effect. For the most realistic reflections, setting EnvironmentSpecularScale and [Lighting.EnvironmentDiffuseScale](https://developer.roblox.com/en-us/api-reference/property/Lighting/EnvironmentDiffuseScale) to 1, and [Lighting.Ambient](https://developer.roblox.com/en-us/api-reference/property/Lighting/Ambient) and [Lighting.OutdoorAmbient](https://developer.roblox.com/en-us/api-reference/property/Lighting/OutdoorAmbient) to (0,0,0) is recommended.
 	 */
-	MetalnessMap: string;
+	MetalnessMap: ContentId;
 	/**
 	 * This property modifies the lighting of the surface by adding bumps, dents, cracks, and curves without adding more polygons.
 	 * 
@@ -4156,13 +3964,13 @@ interface SurfaceAppearance extends Instance {
 	 * 
 	 * Roblox expects imported meshes to include tangents. Modeling software may also refer to this as “tangent space” information. If you apply a normal map and it does not seem to make any visual difference, you may need to re-export your mesh along with its tangent information from modeling software.
 	 */
-	NormalMap: string;
+	NormalMap: ContentId;
 	/**
 	 * This property determines the apparent roughness across the surface. A roughness map is a grayscale image where black pixels correspond to a maximally smooth surface, and white pixels correspond to a maximally rough surface.
 	 * 
 	 * Roughness refers to how much variation the surface has on a very small scale. Reflections on smooth surfaces are sharp and concentrated. Reflections on rough surfaces are more blurry and dispersed.
 	 */
-	RoughnessMap: string;
+	RoughnessMap: ContentId;
 }
 
 /** TaskScheduler is a read-only settings class responsible for the Task Scheduler feature.  
@@ -4210,10 +4018,10 @@ interface TerrainDetail extends Instance {
 	 * @deprecated
 	 */
 	readonly _nominal_TerrainDetail: unique symbol;
-	ColorMap: string;
-	MetalnessMap: string;
-	NormalMap: string;
-	RoughnessMap: string;
+	ColorMap: ContentId;
+	MetalnessMap: ContentId;
+	NormalMap: ContentId;
+	RoughnessMap: ContentId;
 }
 
 interface TerrainRegion extends Instance {
@@ -4444,14 +4252,10 @@ interface TestService extends Instance {
 	ExecuteWithStudioRun: boolean;
 	/**
 	 * Sets whether or not the physics engine should be throttled to 30 FPS while the test is being ran.
-	 * 
-	 * Tags: Hidden, NotReplicated
 	 */
 	Is30FpsThrottleEnabled: boolean;
 	/**
 	 * Sets whether or not the physics environment should be throttled while running this test.
-	 * 
-	 * Tags: Hidden, NotReplicated
 	 */
 	IsPhysicsEnvironmentalThrottled: boolean;
 	/**

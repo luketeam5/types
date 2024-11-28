@@ -101,7 +101,7 @@ interface LuaMetatable<T> {
 }
 
 /** Sets the metatable for the given table. If `metatable` is nil, the metatable of the given table is removed. If the original metatable has a "__metatable" field, this will raise an error. This function returns the table t, which was passed to the function. */
-declare function setmetatable<T extends object>(object: T, metatable: LuaMetatable<T>): T;
+declare function setmetatable<T extends object>(object: T, metatable: LuaMetatable<T> | undefined): T;
 
 /** An object the represents a date or time. Used with `os.date` and `os.time`. */
 interface DateTable {
@@ -601,6 +601,9 @@ declare namespace bit32 {
 
 	/** Returns the number of consecutive zero bits in the 32-bit representation of the provided number starting from the right-most (least significant) bit. */
 	function countrz(n: number): number;
+
+	/** Returns `n` with the order of the bytes swapped. */
+	function byteswap(n: number): number;
 
 	/**
 	 * Returns the unsigned number formed by the bits `field` to `field + width - 1` from `n`.

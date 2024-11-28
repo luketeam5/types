@@ -31,6 +31,8 @@ type ChangedSignal = {
 
 type Tweenable = number | boolean | CFrame | Rect | Color3 | UDim | UDim2 | Vector2 | Vector2int16 | Vector3;
 
+type ContentId = string;
+
 interface EmoteDictionary {
 	/** When these arrays have more than one emote id in them, it will randomly select one of the emotes to play from the list. */
 	[emoteName: string]: Array<number>;
@@ -76,6 +78,7 @@ interface RequestAsyncRequest {
 	Method?: "GET" | "HEAD" | "POST" | "PUT" | "DELETE" | "PATCH";
 	Body?: string;
 	Headers?: HttpHeaders;
+	Compress?: Enum.HttpCompression;
 }
 
 interface RequestAsyncResponse {
@@ -354,6 +357,8 @@ interface AgentParameters {
 	AgentHeight?: number;
 	/** Sets whether off-mesh links for jumping are allowed. */
 	AgentCanJump?: boolean;
+	/** Determines whether climbing `TrussParts` during pathfinding is allowed. */
+	AgentCanClimb?: boolean;
 	/** Determines the spacing between intermediate waypoints in path. */
 	WaypointSpacing?: number;
 	/** Table of materials or defined PathfindingModifiers and their "cost" for traversal. Useful for making the agent prefer certain materials/regions over others. */
@@ -535,10 +540,14 @@ interface SendNotificationConfig {
 }
 
 interface PolicyInfo {
+	/** When true, the player might see immersive ads within an experience. */
+	AreAdsAllowed: boolean;
 	/** When true, the player cannot interact with paid (via in-experience currency or Robux) random item generators. */
 	ArePaidRandomItemsRestricted: boolean;
 	/** A list of external link references (for example, social media links, handles, or iconography) a player is permitted to see. Possible values include: “Discord”, “Facebook”, “Twitch”, and “YouTube”. */
 	AllowedExternalLinkReferences: Array<string>;
+	/** When true, the player is eligible to purchase subscriptions within an experience. */
+	IsEligibleToPurchaseSubscription: boolean;
 	/** When true, the player can trade virtual items that they purchased with in-experience currency or Robux. */
 	IsPaidItemTradingAllowed: boolean;
 	/** When true, an experience should enforce compliance changes. See [here](https://devforum.roblox.com/t/about-our-upcoming-global-compliance-system/461447) for details. */
@@ -803,6 +812,14 @@ interface InstanceConstructor {
 	 * You can read [this thread on the developer forum](https://devforum.roblox.com/t/psa-dont-use-instance-new-with-parent-argument/30296) for more information.
 	 */
 	new <T extends keyof CreatableInstances>(className: T, parent?: Instance): CreatableInstances[T];
+	/**
+	 * Creates a new object with the same type and property values as an existing object. In most cases using `Instance:Clone()` is more appropriate, but this constructor is useful when implementing low‑level libraries or systems.
+	 *
+	 * There are two behavioral differences between this constructor and the `Instance:Clone()` method:
+	 * - This constructor will not copy any of the descendant `Instances` parented to the existing object.
+	 * - This constructor will return a new object even if the existing object had `Instance.Archivable` set to `false`.
+	 */
+	fromExisting: <T extends Instance>(existingInstance: T) => T;
 }
 
 declare const Instance: InstanceConstructor;
@@ -1377,6 +1394,8 @@ interface CFrameConstructor {
 	Angles: (rX: number, rY: number, rZ: number) => CFrame;
 	/** Creates a rotated CFrame from a Unit Vector3 and a rotation in radians */
 	fromAxisAngle: (unit: Vector3, rotation: number) => CFrame;
+	/** Creates a rotated CFrame using angles (rx, ry, rz) in radians. Rotations are applied in the optional Enum.RotationOrder with a default of `XYZ`. */
+	fromEulerAngles: (rX: number, rY: number, rZ: number, order?: Enum.RotationOrder) => CFrame;
 	/** Creates a rotated CFrame using angles (rx, ry, rz) in radians. Rotations are applied in Z, Y, X order. */
 	fromEulerAnglesXYZ: (rX: number, rY: number, rZ: number) => CFrame;
 	/** Creates a rotated CFrame using angles (rx, ry, rz) in radians. Rotations are applied in Z, X, Y order. */
@@ -1872,8 +1891,8 @@ interface OverlapParams {
 	 */
 	FilterDescendantsInstances: Array<Instance>;
 	/**
-	 * `RaycastFilterType.Whitelist` or `RaycastFilterType.Blacklist`. Determines how the `FilterDescendantInstances` is
-	 * used. `Blacklist` will skip the `FilterDescendantInstances`, and `Whitelist` will exclusively include them.
+	 * `RaycastFilterType.Include` or `RaycastFilterType.Exclude`. Determines how the `FilterDescendantInstances` is
+	 * used. `Exclude` will skip the `FilterDescendantInstances`, and `Include` will exclusively include them.
 	 */
 	FilterType: Enum.RaycastFilterType;
 	/**
@@ -1893,6 +1912,11 @@ interface OverlapParams {
 	 * This property, if true, finds all parts that inserect the region even if they have CanQuery set to false.
 	 */
 	BruteForceAllSlow: boolean;
+	/**
+	 * For efficiency and simplicity, this method is the preferred way to add instances to the filter.
+	 * It has the additional advantage that it allows FilterDescendantsInstances to be updated from a parallel context.
+	 */
+	AddToFilter(this: OverlapParams, instances: Instance | Array<Instance>): void;
 }
 type OverlapParamsConstructor = new () => OverlapParams;
 declare const OverlapParams: OverlapParamsConstructor;
@@ -1938,7 +1962,24 @@ interface Path2DControlPoint {
 	 * @deprecated
 	 */
 	readonly _nominal_Path2DControlPoint: unique symbol;
+	/** The position of the `Path2DControlPoint`. */
+	Position: UDim2;
+	/** The left tangent of the `Path2DControlPoint`. */
+	LeftTangent: UDim2;
+	/** The right tangent of the `Path2DControlPoint`. */
+	RightTangent: UDim2;
 }
+
+interface Path2DControlPointConstructor {
+	/** Returns an empty `Path2DControlPoint`. */
+	new (): Path2DControlPoint;
+	/** Returns a `Path2DControlPoint` with only the position set. */
+	new (position: UDim2): Path2DControlPoint;
+	/** Returns a `Path2DControlPoint` with the position, left tangent, and right tangent set. */
+	new (position: UDim2, leftTangent: UDim2, rightTangent: UDim2): Path2DControlPoint;
+}
+
+declare const Path2DControlPoint: Path2DControlPointConstructor;
 
 // PhysicalProperties
 interface PhysicalProperties {
@@ -2055,9 +2096,9 @@ interface RaycastParams {
 	 * Determines how the `FilterDescendantsInstances` list will be used, depending on the
 	 * [RaycastFilterType](https://developer.roblox.com/api-reference/enum/RaycastFilterType) provided.
 	 *
-	 * - `Enum.RaycastFilterType.Whitelist` — Only [BaseParts](https://developer.roblox.com/api-reference/class/BasePart)
+	 * - `Enum.RaycastFilterType.Include` — Only [BaseParts](https://developer.roblox.com/api-reference/class/BasePart)
 	 * which are descendants of objects in the filter list will be considered in the raycast operation.
-	 * - `Enum.RaycastFilterType.Blacklist` — Every [BasePart](https://developer.roblox.com/api-reference/class/BasePart)
+	 * - `Enum.RaycastFilterType.Exclude` — Every [BasePart](https://developer.roblox.com/api-reference/class/BasePart)
 	 * in the game will be considered except those that are descendants of objects in the filter list.
 	 */
 	FilterType: Enum.RaycastFilterType;
@@ -2190,6 +2231,12 @@ interface Secret {
 	 * @deprecated
 	 */
 	readonly _nominal_Secret: unique symbol;
+
+	/** Prepends a string to the secret content. */
+	AddPrefix(this: Secret, prefix: string): Secret;
+
+	/** Appends a string to the secret content. */
+	AddSuffix(this: Secret, suffix: string): Secret;
 }
 
 declare const SharedTableNominal: unique symbol;
@@ -2930,4 +2977,185 @@ declare const enum RobloxEmoji {
 	Robux = "",
 	Premium = "",
 	Verified = "",
+}
+
+interface BanAsyncConfig {
+	/**
+	 * (Required) UserID of the players to be banned.
+	 *
+	 * Max size is `50`. */
+	UserIds: Array<number>;
+	/**
+	 * (Required) Duration of the ban in seconds. Permanent bans should have a value of `-1`.
+	 *
+	 * Zero and all other negative values are invalid.
+	 */
+	Duration: number;
+	/**
+	 * (Required) The message that will be displayed to users when they attempt to and fail to join an experience. Max size is 400.
+	 */
+	DisplayReason: string;
+	/**
+	 * (Required) Any internal messaging that will be returned when querying the user's ban history. Max size is 1000.
+	 */
+	PrivateReason: string;
+	/**
+	 * (Optional, default is `true`) Propagates the ban to all places within this universe.
+	 */
+	ApplyToUniverse?: boolean;
+	/**
+	 * (Optional, default is `false`) When `true`, Roblox does not attempt to ban alt accounts.
+	 */
+	ExcludeAltAccounts?: boolean;
+}
+
+interface UnbanAsyncConfig {
+	/**
+	 * (Required) UserIDs to be force allowed into the experience(s).
+	 *
+	 * Max size is `50`.
+	 */
+	UserIds: Array<number>;
+	/**
+	 * (Optional, default is `true`) Propagates the unban to all places within this universe.
+	 */
+	ApplyToUniverse?: boolean;
+}
+
+/**
+ * Keys are expected to be unique numbers greater than or equal to 0, while values are expected to be numbers between 0 and 1 (inclusive). Tables containing up to 400 key-value pairs are supported.
+ */
+type DistanceAttenuationCurve = { [key: number]: number } | Map<number, number>;
+
+interface CalculateConstraintsToPreserveConfig {
+	/**
+	 * The distance tolerance, in regards to `Attachment` preservation, between the attachment and the closest point on the original part's surface versus the closest point on the resulting part's surface. If the resulting distance following the solid modeling operation is greater than this value, the `Parent` of attachments and their associated constraints will be `nil` in the returned recommendation table.
+	 */
+	tolerance?: number;
+	/**
+	 * A `Enum.WeldConstraintPreserve` enum value describing how `WeldConstraints` are preserved in the resulting recommendation table.
+	 */
+	weldConstraintPreserve?: Enum.WeldConstraintPreserve;
+}
+
+interface GeometryServiceAsyncMethodConfig {
+	/**
+	 * The value of `CollisionFidelity` in the resulting parts.
+	 */
+	CollisionFidelity?: Enum.CollisionFidelity;
+	/**
+	 * The value of `FluidFidelity` in the resulting parts.
+	 */
+	RenderFidelity?: Enum.RenderFidelity;
+	/**
+	 * The value of FluidFidelity in the resulting parts.
+	 */
+	FluidFidelity?: Enum.FluidFidelity;
+	/**
+	 * Boolean controlling whether the objects should all be kept together or properly split apart. Default is `true` (split).
+	 */
+	SplitApart?: boolean;
+}
+
+interface VoxelChannels {
+	/**
+	 * The `Enum.Material` material of the voxel. Note that `Water` is not supported anymore; instead, a voxel that contains only water should be entered as `SolidMaterial = Enum.Material.Air, LiquidOccupancy = x`, where `x` is a number between 0 (exclusive) and 1 (inclusive).
+	 */
+	SolidMaterial: Enum.Material;
+	/**
+	 * The occupancy of the voxel's material as specified in the `SolidMaterial` channel. This should be a value between 0 (empty) and 1 (full).
+	 */
+	SolidOccupancy: number;
+	/**
+	 * Specifies the occupancy of the `Water` material in a voxel as a value between 0 (no water) and 1 (full of water). If the `SolidOccupancy` is 1 and the `SolidMaterial` is not `Air`, this will be 0.
+	 */
+	LiquidOccupancy: number;
+}
+
+interface SubscriptionInfo {
+	/**
+	 * The name of the subscription product.
+	 */
+	Name: string;
+	/**
+	 * The description of the subscription product.
+	 */
+	Description: string;
+	/**
+	 * The asset ID of the subscription product icon.
+	 */
+	IconImageAssetID: number;
+	/**
+	 * The duration of the subscription (for example, `Month`, `Year`, etc.).
+	 */
+	SubscriptionPeriod: Enum.SubscriptionPeriod;
+	/**
+	 * Localized price with the appropriate currency symbol for display (for example, `$4.99`). For users in unsupported countries, `DisplayPrice` returns a string without specific price information.
+	 */
+	DisplayPrice: string;
+	/**
+	 * Localized subscription period text for display (for example, `/month`). Can be used together with `DisplayPrice`.
+	 */
+	DisplaySubscriptionPeriod: number;
+	/**
+	 * Name of the subscription benefit provider (for example, the name of the associated experience).
+	 */
+	SubscriptionProviderName: string;
+	/**
+	 * True if the subscription product is available for sale.
+	 */
+	IsForSale: boolean;
+	/**
+	 * A number that can be used to compare the price of different subscription products. This is not the actual price of the subscription (for example, 499).
+	 */
+	PriceTier: number;
+}
+
+interface UserSubscriptionDetails {
+	/**
+	 * Current state of this particular subscription.
+	 */
+	SubscriptionState: Enum.SubscriptionState;
+	/**
+	 * Renewal time for this current subscription. May be in the past if the subscription is in [SubscribedRenewalPaymentPending](https://create.roblox.com/docs/reference/engine/enums/SubscriptionState#SubscribedRenewalPaymentPending) state. This field is will be `nil` if the subscription will not renew, is [Expired](https://create.roblox.com/docs/reference/engine/enums/SubscriptionState#Expired), or the user never subscribed.
+	 */
+	NextRenewTime: DateTime | undefined;
+	/**
+	 * When this subscription expires. This field will be nil if the subscription is not cancelled or the user never subscribed.
+	 */
+	ExpireTime: DateTime | undefined;
+	/**
+	 * Table containing the details of the subscription expiration. This field will be `nil` if the subscription is not in the [Expired](https://create.roblox.com/docs/reference/engine/enums/SubscriptionState#Expired) state. If populated, the table contains a ExpirationReason key of type [Enum.SubscriptionExpirationReason](https://create.roblox.com/docs/reference/engine/enums/SubscriptionExpirationReason) describing why the subscription is expired.
+	 */
+	ExpirationDetails: ExpirationDetails | undefined;
+}
+
+interface UserSubscriptionPaymentHistory {
+	/**
+	 * [DateTime](https://create.roblox.com/docs/reference/engine/datatypes/DateTime) at the start of this particular subscription period.
+	 */
+	CycleStartTime: DateTime;
+	/**
+	 * [DateTime](https://create.roblox.com/docs/reference/engine/datatypes/DateTime) at the end of this particular subscription period.
+	 */
+	CycleEndTime: DateTime;
+	/**
+	 * [Enum.SubscriptionPaymentStatus.Paid](https://create.roblox.com/docs/reference/engine/enums/SubscriptionPaymentStatus#Paid) if the user paid for this particular subscription period. [Enum.SubscriptionPaymentStatus.Refunded](https://create.roblox.com/docs/reference/engine/enums/SubscriptionPaymentStatus#Refunded) if the user refunded this particular subscription period.
+	 */
+	PaymentStatus: Enum.SubscriptionPaymentStatus;
+}
+
+interface UserSubscriptionStatus {
+	/**
+	 * True if the user's subscription is active.
+	 */
+	IsSubscribed: boolean;
+	/**
+	 * True if the user is set to renew this subscription after the current subscription period ends.
+	 */
+	IsRenewing: boolean;
+}
+
+interface ExpirationDetails {
+	ExpirationReason: Enum.SubscriptionExpirationReason;
 }
